@@ -1,0 +1,184 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Pills — match your exact look, centered */
+  .blog-tag-filter {
+    display:flex; flex-wrap:wrap; gap:0; justify-content:center;
+    margin:1rem 0 1.6rem; text-align:center;
+  }
+  .blog-tag-filter__pill {
+    border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
+    border-radius: var(--variant-pills-radius);
+    display:inline-block;
+    margin:.7rem .5rem .2rem 0;
+    padding:1rem 2rem;
+    font-size:1.4rem;
+    letter-spacing:.1rem;
+    line-height:1;
+    text-align:center;
+    transition: border var(--duration-short) ease, background-color var(--duration-short) ease, color var(--duration-short) ease;
+    cursor:pointer;
+    position:relative;
+    text-decoration:none;
+    background-color: rgb(var(--color-background));
+    color: rgba(var(--color-foreground));
+  }
+  .blog-tag-filter__pill[aria-pressed="true"] {
+    background-color: rgb(var(--color-foreground));
+    background-color: rgba(var(--color-foreground));
+    color: rgb(var(--color-background));
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by 6 -%}
+  <div class="main-blog page-width section-{{ section.id }}-padding">
+    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ blog.title | escape }}
+    </h1>
+
+    {%- if blog.all_tags.size > 0 -%}
+      {%- comment -%} Compute whether any tag is active (server-side) {%- endcomment -%}
+      {%- assign has_active_tag = false -%}
+      {%- if current_tags and current_tags.size > 0 -%}
+        {%- assign has_active_tag = true -%}
+      {%- endif -%}
+
+      <nav class="blog-tag-filter" role="toolbar" aria-label="Filter posts by tag">
+        {%- comment -%} "All" — active when no tag selected {%- endcomment -%}
+        <a href="{{ blog.url }}"
+           class="blog-tag-filter__pill"
+           aria-pressed="{% if has_active_tag %}false{% else %}true{% endif %}">
+          All
+        </a>
+
+        {%- for tag in blog.all_tags -%}
+          {%- assign is_active = false -%}
+          {%- if has_active_tag -%}
+            {%- for t in current_tags -%}
+              {%- if t == tag -%}{%- assign is_active = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}"
+             class="blog-tag-filter__pill"
+             aria-pressed="{% if is_active %}true{% else %}false{% endif %}">
+            {{ tag }}
+          </a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+      {%- for article in blog.articles -%}
+        <div
+          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+          {%- render 'article-card',
+            article: article,
+            media_height: section.settings.image_height,
+            media_aspect_ratio: article.image.aspect_ratio,
+            show_image: section.settings.show_image,
+            show_date: section.settings.show_date,
+            show_author: section.settings.show_author,
+            show_excerpt: true
+          -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "grid", "label": "t:sections.main-blog.settings.layout.options__1.label" },
+        { "value": "collage", "label": "t:sections.main-blog.settings.layout.options__2.label" }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        { "value": "adapt", "label": "t:sections.main-blog.settings.image_height.options__1.label" },
+        { "value": "small", "label": "t:sections.main-blog.settings.image_height.options__2.label" },
+        { "value": "medium", "label": "t:sections.main-blog.settings.image_height.options__3.label" },
+        { "value": "large", "label": "t:sections.main-blog.settings.image_height.options__4.label" }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

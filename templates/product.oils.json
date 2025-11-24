@@ -1,0 +1,562 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }} {{ product.metafields.custom.ethan_test.value }}",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description_Y3fmfV": {
+          "type": "description",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "collapsible_tab_Mmmhdf": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Is this for you?",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.is_this_for_you.value }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_zfb6bK": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Benefits",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.benefits.value }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_UpgtcP": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Recommended usage",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.recommended_usage.value }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_QmNJng": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Ingredient fact",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.ingredient_facts.value }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_YMX7XX": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "For you to know",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.important_note.value }}</p>",
+            "page": ""
+          }
+        },
+        "icon_with_text_9BQEkk": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "star",
+            "heading_1": "Made in Miami",
+            "icon_2": "heart",
+            "heading_2": "Couples Favorite",
+            "icon_3": "fire",
+            "heading_3": "100% Fun Guarantee"
+          }
+        },
+        "text_6eWnGM": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.coa | metafield_tag }}",
+            "text_style": "body"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "popup_gebBB7": {
+          "type": "popup",
+          "settings": {
+            "text": "30 Day Money Back Guarantee",
+            "page": "return-refund"
+          }
+        },
+        "custom_liquid_6qeG3z": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div role=\"alert\"\n     style=\"display:flex;align-items:center;gap:10px;padding:12px 14px;margin:0;background:rgba(211,47,47,0.25);border-radius:12px;color:#7F1D1D;font-size:13px;line-height:1.4;\">\n  <!-- Icon -->\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" style=\"flex:0 0 auto;fill:currentColor;\">\n    <path d=\"M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm1 12.5a1 1 0 1 1-2 0V8a1 1 0 1 1 2 0v6.5zm-1 4a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z\"/>\n  </svg>\n\n  <!-- Text -->\n  <p style=\"margin:0;letter-spacing:.01em;\">\n    <strong>Disclaimer:</strong> Avoid use if you are on blood pressure medication, have cardiovascular, renal, or pulmonary conditions, or if you are sensitive to any of the ingredients. This statement and product have not been evaluated by the FDA. It is not intended to diagnose, treat, prevent, or cure any disease.\n  </p>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "description_Y3fmfV",
+        "quantity_selector",
+        "collapsible_tab_Mmmhdf",
+        "collapsible_tab_zfb6bK",
+        "collapsible_tab_UpgtcP",
+        "collapsible_tab_QmNJng",
+        "collapsible_tab_YMX7XX",
+        "icon_with_text_9BQEkk",
+        "text_6eWnGM",
+        "share",
+        "popup_gebBB7",
+        "custom_liquid_6qeG3z"
+      ],
+      "custom_css": [
+        "@media (max-width: 520px) {h1 {font-size: 2rem; }}"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-3",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_MkCLrj": {
+      "type": "spacer-wave",
+      "disabled": true,
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "multicolumn_nHNcMM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_aidh8A": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/FreeReturns.svg",
+            "title": "FREE RETURNS",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NQm4NQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SecureCheckout.svg",
+            "title": "SECURE CHECKOUT",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ntPRpw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/FreeShipping.svg",
+            "title": "FREE SHIPPING OVER $25",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_aidh8A",
+        "column_NQm4NQ",
+        "column_ntPRpw"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "spacer_wave_3hJ83F": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": false,
+        "show_bottom_wave": true,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 20,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "featured_reviews_mnMHPt": {
+      "type": "featured-reviews",
+      "blocks": {
+        "image_nimhYa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_97.png",
+            "alt": ""
+          }
+        },
+        "review_HJAqir": {
+          "type": "review",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>These oils smell AMAZING. The Velvet Rose one legit made the room feel more romantic instantly. Super smooth on the skin and not sticky at all. We both loved it 😍.</p>",
+            "author": "",
+            "rating": 5
+          }
+        },
+        "image_ny6D8U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/low-sex-drive-ruining-relationship.jpg",
+            "alt": ""
+          }
+        },
+        "review_i4bPyV": {
+          "type": "review",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>Okay the “Lime in the Coconut” scent is EVERYTHING. Fresh, sweet and kinda tropical. Made massages feel way more intimate and cozy. Highly recommend this set!</p>",
+            "author": "",
+            "rating": 5
+          }
+        },
+        "image_Ex4tLq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2024-01-30_at_6.38.05_PM.jpg",
+            "alt": ""
+          }
+        },
+        "review_jTeB7b": {
+          "type": "review",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>We usually don’t use massage oils but wow… this set changed our minds. The scents are natural and not overpowering. Immediately felt more connected and relaxed together.</p>",
+            "author": "",
+            "rating": 5
+          }
+        },
+        "image_GCRmqq": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2024-01-30_at_6.38.05_PM.jpg",
+            "alt": ""
+          }
+        },
+        "review_LCJCMU": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "title": "Natural Relief Is A Gummy Away",
+            "subtitle": "Relief!",
+            "text": "<p>Never in my wildest dreams would I think that this would alleviate my anxiety and do it so quickly. I prefer to do things naturally and was so glad to find these!</p>",
+            "author": "Elizabeth F.",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_nimhYa",
+        "review_HJAqir",
+        "image_ny6D8U",
+        "review_i4bPyV",
+        "image_Ex4tLq",
+        "review_jTeB7b",
+        "image_GCRmqq",
+        "review_LCJCMU"
+      ],
+      "custom_css": [
+        "@media (max-width: 520px) {p {font-size: 1.2rem; line-height: 1.6rem; } h3 {font-size: 1.4rem; line-height: 2rem; } .reviews-template--20316785049849__featured_reviews_mnMHPt .card--review .card__inner {padding: 40px 16px; width: auto; }}"
+      ],
+      "name": "Review Carousel",
+      "settings": {
+        "heading": "YOU’RE MAKING US BLUSH",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "full_width": true,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "color_scheme": "",
+        "card_color_scheme": "scheme-3",
+        "show_stars": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "view_all_label": "Read more",
+        "view_all_link": "",
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "1761677379c5428c0b": {
+      "type": "apps",
+      "blocks": {
+        "stamped_reviews_main_widget_3McWDH": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
+          }
+        }
+      },
+      "block_order": [
+        "stamped_reviews_main_widget_3McWDH"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "collapsible_content_9Vki7c": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_WdLPRz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do NUUD Pleasures products enhance arousal?",
+            "icon": "none",
+            "row_content": "<p>Our proprietary blend is meticulously designed with powerful natural aphrodisiacs to awaken desire.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qe9W6b": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are all NUUD products infused with hemp?",
+            "icon": "none",
+            "row_content": "<p>Our Libido Enhancers are crafted without hemp derivatives yet contain a potent mix of natural aphrodisiacs for those seeking pure stimulation.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_q9akXg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does NUUD offer free shipping?",
+            "icon": "none",
+            "row_content": "<p>Absolutely, we provide free shipping within the United States for all orders exceeding $19.50.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4jRbw8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use products designed for the opposite gender?",
+            "icon": "none",
+            "row_content": "<p>Certainly. While our formulas are specifically designed for each gender, they are universally effective and safe, allowing anyone to experience their aphrodisiac qualities.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LzLNNq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What can I expect from an intimate encounter with NUUD products?",
+            "icon": "none",
+            "row_content": "<p>NUUD Pleasures products are designed to give you enhanced performance, a surge in libido, a profound connection with your own sensuality and your partner, and an unforgettable pleasure that deepens your intimacy.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_WdLPRz",
+        "collapsible_row_qe9W6b",
+        "collapsible_row_q9akXg",
+        "collapsible_row_4jRbw8",
+        "collapsible_row_LzLNNq"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-4",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image": "shopify://shop_images/Frame_81_1.webp",
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_jxwt67": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#881d3e",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    }
+  },
+  "order": [
+    "main",
+    "spacer_wave_MkCLrj",
+    "multicolumn_nHNcMM",
+    "spacer_wave_3hJ83F",
+    "featured_reviews_mnMHPt",
+    "1761677379c5428c0b",
+    "collapsible_content_9Vki7c",
+    "related-products",
+    "spacer_wave_jxwt67"
+  ]
+}

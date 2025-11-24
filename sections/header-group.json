@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Our new site is live! Enjoy 30% OFF all products — limited time only.",
+            "link": ""
+          }
+        },
+        "announcement_xqVB4i": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "New site, same favorites — now 30% OFF storewide! Don’t miss out",
+            "link": ""
+          }
+        },
+        "announcement_k3YPh4": {
+          "type": "announcement",
+          "settings": {
+            "text": "Thirsty yet? Your Next Sip Awaits 💦",
+            "link": "shopify://pages/nuud-drink"
+          }
+        },
+        "announcement_DXHDGk": {
+          "type": "announcement",
+          "settings": {
+            "text": "BUY 2 GET ONE FREE  Pre–Black Friday Sale",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "announcement_xqVB4i",
+        "announcement_k3YPh4",
+        "announcement_DXHDGk"
+      ],
+      "custom_css": [],
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "color_scheme": "scheme-4",
+        "show_line_separator": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [
+        ".header-wrapper .header .header__inline-menu .list-menu list-menu--inline #HeaderMenu-shop [href=\"/pages/nuud-drink\"]; {display: inline-block; margin-left: 0.5rem; padding: 0.15rem 0.5rem; font-size: 1.1rem; line-height: 1; border-radius: 9999px; border: 1px solid rgba(var(--color-foreground), 0.15); background: rgb(var(--color-background)); color: rgb(var(--color-foreground)); vertical-align: middle;}"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "new-redesign-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": false,
+        "color_scheme": "scheme-5",
+        "menu_color_scheme": "scheme-2",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

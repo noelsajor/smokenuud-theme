@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_6bVE8w": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zwT4Kk": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.metafields.custom.categoria.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_pWxnXx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ collection.metafields.custom.meta_description.value }}</p>"
+          }
+        },
+        "caption_fTUVCH": {
+          "type": "caption",
+          "settings": {
+            "caption": "{{ collection.metafields.custom.meta_cta.value }}",
+            "text_style": "subtitle",
+            "text_size": "large"
+          }
+        },
+        "button_g93Qit": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zwT4Kk",
+        "text_pWxnXx",
+        "caption_fTUVCH",
+        "button_g93Qit"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "custom_css": [
+        ".price-item {display: none;}"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": false,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection_hfP9Qw": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".price-item {display: none;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "apparel-accessories",
+        "products_to_show": 25,
+        "title": "{{ section.settings.collection.title }}",
+        "heading_size": "h1",
+        "description": "{{ section.settings.collection.description }}",
+        "show_description": true,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "spacer_wave_J44PrT": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#881d3e",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    }
+  },
+  "order": [
+    "rich_text_6bVE8w",
+    "banner",
+    "product-grid",
+    "featured_collection_hfP9Qw",
+    "spacer_wave_J44PrT"
+  ]
+}

@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe To Our Newsletter",
+            "heading_size": "h0"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Get access to seductive sales, titillating tips, and a community where desire knows no bounds</p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email-form"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_GXP9YL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Nuud_Pleasures_Logo_Vectorized_3.svg",
+            "image_width": 160,
+            "alignment": "center"
+          }
+        },
+        "link_list_Tein3Q": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "legal"
+          }
+        },
+        "link_list_i9twJr": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "new-redesign-menu"
+          }
+        },
+        "text_3nRhQ7": {
+          "type": "text",
+          "settings": {
+            "heading": "Disclaimer",
+            "subtext": "<p>NUUD Vapes is the world’s first vapordisiac. Get NUUD today! 21+ over.</p><p>Products on this website contains 0.3% THC or less.</p><p></p><p>THE FDA HAS NOT EVALUATED THIS PRODUCT FOR SAFETY OR EFFICACY, AND HAS NOT APPROVED THESE STATEMENTS. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE.</p>"
+          }
+        },
+        "text_CC3frT": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "heading": "Contact",
+            "subtext": "<ul><li>Nuud Pleasures 19591 NE 10th ave North Miami, Florida 33179</li><li><a href=\"mailto:info@nuudpleasures.com\">info@nuudpleasures.com</a></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "image_GXP9YL",
+        "link_list_Tein3Q",
+        "link_list_i9twJr",
+        "text_3nRhQ7",
+        "text_CC3frT"
+      ],
+      "settings": {
+        "color_scheme": "scheme-da0d36b9-8bf8-497e-aff2-d33cbc2c95b6",
+        "newsletter_enable": true,
+        "newsletter_heading": "Don't miss out on our newsletters!",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "newsletter",
+    "footer"
+  ]
+}

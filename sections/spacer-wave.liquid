@@ -1,0 +1,201 @@
+<!-- Wave Spacer Section (Animated, Seamless, Re-usable) -->
+<section class="spacer-wave-section {% if section.settings.animate_waves %}waves-animated{% endif %}"
+         role="separator"
+         aria-label="Decorative wave spacer"
+         style="background: {% if section.settings.use_gradient %}{{ section.settings.background_gradient }}{% else %}{{ section.settings.background_color }}{% endif %};
+                padding: {{ section.settings.spacer_padding_top }}px 0 {{ section.settings.spacer_padding_bottom }}px 0;
+                {% if section.settings.animate_waves %}--wave-speed: {{ section.settings.wave_speed }}s; --wave-bob: {{ section.settings.wave_bob }}px;{% endif %}">
+
+  {%- comment -%} --------- TOP WAVE (optional, seamless loop) --------- {%- endcomment -%}
+  {% if section.settings.show_top_wave %}
+  <div class="wave-top" 
+       style="top: -{{ section.settings.wave_overlap_top }}px; height: {{ section.settings.wave_overlap_top }}px;"
+       aria-hidden="true">
+    <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" role="presentation" focusable="false">
+      {% assign freq = section.settings.wave_frequency %}
+      {% assign amp  = section.settings.wave_amplitude %}
+
+      {%- capture wave_path_top -%}
+        {% if freq == 1 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 10 }} Q720,{{ 100 | minus: amp | minus: amp | plus: 10 }} 1440,{{ 100 | minus: amp | plus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,100 L0,{{ 100 | minus: amp }} Q720,{{ 100 | minus: amp | minus: amp }} 1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,100 L0,{{ 100 | minus: amp | minus: 10 }} Q720,{{ 100 | minus: amp | minus: amp | minus: 20 }} 1440,{{ 100 | minus: amp | minus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,100 L0,{{ 100 | minus: amp }} L720,{{ 100 | minus: amp | minus: amp }} L1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 5 }} C480,{{ 100 | minus: amp | minus: amp | plus: 5 }} 960,{{ 100 | minus: amp | minus: amp | plus: 5 }} 1440,{{ 100 | minus: amp | plus: 5 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% elsif freq == 2 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 10 }} Q360,{{ 100 | minus: amp | minus: amp | plus: 10 }} 720,{{ 100 | minus: amp | plus: 10 }} T1440,{{ 100 | minus: amp | plus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,100 L0,{{ 100 | minus: amp }} Q360,{{ 100 | minus: amp | minus: amp }} 720,{{ 100 | minus: amp }} T1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,100 L0,{{ 100 | minus: amp | minus: 10 }} Q360,{{ 100 | minus: amp | minus: amp | minus: 20 }} 720,{{ 100 | minus: amp | minus: 10 }} T1440,{{ 100 | minus: amp | minus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,100 L0,{{ 100 | minus: amp }} L360,{{ 100 | minus: amp | minus: amp }} L720,{{ 100 | minus: amp }} L1080,{{ 100 | minus: amp | minus: amp }} L1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 5 }} C240,{{ 100 | minus: amp | minus: amp | plus: 5 }} 480,{{ 100 | minus: amp | minus: amp | plus: 5 }} 720,{{ 100 | minus: amp | plus: 5 }} C960,{{ 100 | minus: amp | plus: amp | plus: 5 }} 1200,{{ 100 | minus: amp | plus: amp | plus: 5 }} 1440,{{ 100 | minus: amp | plus: 5 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% elsif freq == 3 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 10 }} Q240,{{ 100 | minus: amp | minus: amp | plus: 10 }} 480,{{ 100 | minus: amp | plus: 10 }} T960,{{ 100 | minus: amp | plus: 10 }} T1440,{{ 100 | minus: amp | plus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,100 L0,{{ 100 | minus: amp }} Q240,{{ 100 | minus: amp | minus: amp }} 480,{{ 100 | minus: amp }} T960,{{ 100 | minus: amp }} T1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,100 L0,{{ 100 | minus: amp | minus: 10 }} Q240,{{ 100 | minus: amp | minus: amp | minus: 20 }} 480,{{ 100 | minus: amp | minus: 10 }} T960,{{ 100 | minus: amp | minus: 10 }} T1440,{{ 100 | minus: amp | minus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,100 L0,{{ 100 | minus: amp }} L240,{{ 100 | minus: amp | minus: amp }} L480,{{ 100 | minus: amp }} L720,{{ 100 | minus: amp | minus: amp }} L960,{{ 100 | minus: amp }} L1200,{{ 100 | minus: amp | minus: amp }} L1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 5 }} C160,{{ 100 | minus: amp | minus: amp | plus: 5 }} 320,{{ 100 | minus: amp | minus: amp | plus: 5 }} 480,{{ 100 | minus: amp | plus: 5 }} C640,{{ 100 | minus: amp | plus: amp | plus: 5 }} 800,{{ 100 | minus: amp | plus: amp | plus: 5 }} 960,{{ 100 | minus: amp | plus: 5 }} C1120,{{ 100 | minus: amp | minus: amp | plus: 5 }} 1280,{{ 100 | minus: amp | minus: amp | plus: 5 }} 1440,{{ 100 | minus: amp | plus: 5 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% elsif freq == 4 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 10 }} Q180,{{ 100 | minus: amp | minus: amp | plus: 10 }} 360,{{ 100 | minus: amp | plus: 10 }} T720,{{ 100 | minus: amp | plus: 10 }} T1080,{{ 100 | minus: amp | plus: 10 }} T1440,{{ 100 | minus: amp | plus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,100 L0,{{ 100 | minus: amp }} Q180,{{ 100 | minus: amp | minus: amp }} 360,{{ 100 | minus: amp }} T720,{{ 100 | minus: amp }} T1080,{{ 100 | minus: amp }} T1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,100 L0,{{ 100 | minus: amp | minus: 10 }} Q180,{{ 100 | minus: amp | minus: amp | minus: 20 }} 360,{{ 100 | minus: amp | minus: 10 }} T720,{{ 100 | minus: amp | minus: 10 }} T1080,{{ 100 | minus: amp | minus: 10 }} T1440,{{ 100 | minus: amp | minus: 10 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,100 L0,{{ 100 | minus: amp }} L180,{{ 100 | minus: amp | minus: amp }} L360,{{ 100 | minus: amp }} L540,{{ 100 | minus: amp | minus: amp }} L720,{{ 100 | minus: amp }} L900,{{ 100 | minus: amp | minus: amp }} L1080,{{ 100 | minus: amp }} L1260,{{ 100 | minus: amp | minus: amp }} L1440,{{ 100 | minus: amp }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,100 L0,{{ 100 | minus: amp | plus: 5 }} C120,{{ 100 | minus: amp | minus: amp | plus: 5 }} 240,{{ 100 | minus: amp | minus: amp | plus: 5 }} 360,{{ 100 | minus: amp | plus: 5 }} C480,{{ 100 | minus: amp | plus: amp | plus: 5 }} 600,{{ 100 | minus: amp | plus: amp | plus: 5 }} 720,{{ 100 | minus: amp | plus: 5 }} C840,{{ 100 | minus: amp | minus: amp | plus: 5 }} 960,{{ 100 | minus: amp | minus: amp | plus: 5 }} 1080,{{ 100 | minus: amp | plus: 5 }} C1200,{{ 100 | minus: amp | plus: amp | plus: 5 }} 1320,{{ 100 | minus: amp | plus: amp | plus: 5 }} 1440,{{ 100 | minus: amp | plus: 5 }} L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% else %}
+          <path d="M0,100 L0,50 Q360,30 720,50 T1440,50 L1440,100 Z" fill="{{ section.settings.wave_color }}"/>
+        {% endif %}
+      {%- endcapture -%}
+
+      <g class="wave-tiles">
+        {{ wave_path_top }}
+        <g transform="translate(1440,0)">{{ wave_path_top }}</g>
+      </g>
+    </svg>
+  </div>
+  {% endif %}
+
+  {%- comment -%} Optional inner spacer if you want extra gap between waves and content above/below {%- endcomment -%}
+  {% if section.settings.extra_space %}
+    <div class="spacer-space" style="height: {{ section.settings.extra_space_height }}px"></div>
+  {% endif %}
+
+  {%- comment -%} --------- BOTTOM WAVE (optional, seamless loop) --------- {%- endcomment -%}
+  {% if section.settings.show_bottom_wave %}
+  <div class="wave-bottom" 
+       style="bottom: -{{ section.settings.wave_overlap_bottom }}px; height: {{ section.settings.wave_overlap_bottom }}px;"
+       aria-hidden="true">
+    <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" role="presentation" focusable="false">
+      {% assign freq = section.settings.wave_frequency %}
+      {% assign amp  = section.settings.wave_amplitude %}
+
+      {%- capture wave_path_bottom -%}
+        {% if freq == 1 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,0 L0,{{ amp | minus: 10 }} Q720,{{ amp | plus: amp | minus: 10 }} 1440,{{ amp | minus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,0 L0,{{ amp }} Q720,{{ amp | plus: amp }} 1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,0 L0,{{ amp | plus: 10 }} Q720,{{ amp | plus: amp | plus: 20 }} 1440,{{ amp | plus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,0 L0,{{ amp }} L720,{{ amp | plus: amp }} L1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,0 L0,{{ amp | minus: 5 }} C480,{{ amp | plus: amp | minus: 5 }} 960,{{ amp | plus: amp | minus: 5 }} 1440,{{ amp | minus: 5 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% elsif freq == 2 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,0 L0,{{ amp | minus: 10 }} Q360,{{ amp | plus: amp | minus: 10 }} 720,{{ amp | minus: 10 }} T1440,{{ amp | minus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,0 L0,{{ amp }} Q360,{{ amp | plus: amp }} 720,{{ amp }} T1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,0 L0,{{ amp | plus: 10 }} Q360,{{ amp | plus: amp | plus: 20 }} 720,{{ amp | plus: 10 }} T1440,{{ amp | plus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,0 L0,{{ amp }} L360,{{ amp | plus: amp }} L720,{{ amp }} L1080,{{ amp | plus: amp }} L1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,0 L0,{{ amp | minus: 5 }} C240,{{ amp | plus: amp | minus: 5 }} 480,{{ amp | plus: amp | minus: 5 }} 720,{{ amp | minus: 5 }} C960,{{ amp | minus: amp | minus: 5 }} 1200,{{ amp | minus: amp | minus: 5 }} 1440,{{ amp | minus: 5 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% elsif freq == 3 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,0 L0,{{ amp | minus: 10 }} Q240,{{ amp | plus: amp | minus: 10 }} 480,{{ amp | minus: 10 }} T960,{{ amp | minus: 10 }} T1440,{{ amp | minus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,0 L0,{{ amp }} Q240,{{ amp | plus: amp }} 480,{{ amp }} T960,{{ amp }} T1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,0 L0,{{ amp | plus: 10 }} Q240,{{ amp | plus: amp | plus: 20 }} 480,{{ amp | plus: 10 }} T960,{{ amp | plus: 10 }} T1440,{{ amp | plus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,0 L0,{{ amp }} L240,{{ amp | plus: amp }} L480,{{ amp }} L720,{{ amp | plus: amp }} L960,{{ amp }} L1200,{{ amp | plus: amp }} L1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,0 L0,{{ amp | minus: 5 }} C160,{{ amp | plus: amp | minus: 5 }} 320,{{ amp | plus: amp | minus: 5 }} 480,{{ amp | minus: 5 }} C640,{{ amp | minus: amp | minus: 5 }} 800,{{ amp | minus: amp | minus: 5 }} 960,{{ amp | minus: 5 }} C1120,{{ amp | plus: amp | minus: 5 }} 1280,{{ amp | plus: amp | minus: 5 }} 1440,{{ amp | minus: 5 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% elsif freq == 4 %}
+          {% case section.settings.wave_shape %}
+            {% when 'gentle' %}<path d="M0,0 L0,{{ amp | minus: 10 }} Q180,{{ amp | plus: amp | minus: 10 }} 360,{{ amp | minus: 10 }} T720,{{ amp | minus: 10 }} T1080,{{ amp | minus: 10 }} T1440,{{ amp | minus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'medium' %}<path d="M0,0 L0,{{ amp }} Q180,{{ amp | plus: amp }} 360,{{ amp }} T720,{{ amp }} T1080,{{ amp }} T1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'dramatic' %}<path d="M0,0 L0,{{ amp | plus: 10 }} Q180,{{ amp | plus: amp | plus: 20 }} 360,{{ amp | plus: 10 }} T720,{{ amp | plus: 10 }} T1080,{{ amp | plus: 10 }} T1440,{{ amp | plus: 10 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'sharp' %}<path d="M0,0 L0,{{ amp }} L180,{{ amp | plus: amp }} L360,{{ amp }} L540,{{ amp | plus: amp }} L720,{{ amp }} L900,{{ amp | plus: amp }} L1080,{{ amp }} L1260,{{ amp | plus: amp }} L1440,{{ amp }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+            {% when 'rounded' %}<path d="M0,0 L0,{{ amp | minus: 5 }} C120,{{ amp | plus: amp | minus: 5 }} 240,{{ amp | plus: amp | minus: 5 }} 360,{{ amp | minus: 5 }} C480,{{ amp | minus: amp | minus: 5 }} 600,{{ amp | minus: amp | minus: 5 }} 720,{{ amp | minus: 5 }} C840,{{ amp | plus: amp | minus: 5 }} 960,{{ amp | plus: amp | minus: 5 }} 1080,{{ amp | minus: 5 }} C1200,{{ amp | minus: amp | minus: 5 }} 1320,{{ amp | minus: amp | minus: 5 }} 1440,{{ amp | minus: 5 }} L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+          {% endcase %}
+        {% else %}
+          <path d="M0,0 L0,50 Q360,70 720,50 T1440,50 L1440,0 Z" fill="{{ section.settings.wave_color }}"/>
+        {% endif %}
+      {%- endcapture -%}
+
+      <g class="wave-tiles">
+        {{ wave_path_bottom }}
+        <g transform="translate(1440,0)">{{ wave_path_bottom }}</g>
+      </g>
+    </svg>
+  </div>
+  {% endif %}
+</section>
+
+<style>
+/* Base */
+.spacer-wave-section{ position:relative; overflow:visible; z-index: {{ section.settings.z_index }}; font-family: inherit; }
+
+/* Waves */
+.spacer-wave-section .wave-top, 
+.spacer-wave-section .wave-bottom{ position:absolute; left:0; width:100%; line-height:0; pointer-events:none; z-index:2; overflow:visible; }
+.spacer-wave-section .wave-top svg, 
+.spacer-wave-section .wave-bottom svg{ width:100%; height:100%; display:block; }
+
+/* Seamless loop (matches your features section) */
+.spacer-wave-section.waves-animated .wave-top .wave-tiles,
+.spacer-wave-section.waves-animated .wave-bottom .wave-tiles{ animation: waveSlide var(--wave-speed, 8s) linear infinite; }
+.spacer-wave-section.waves-animated .wave-top,
+.spacer-wave-section.waves-animated .wave-bottom{ animation: waveBob var(--wave-speed, 8s) ease-in-out infinite alternate; }
+@keyframes waveSlide{ from{ transform: translateX(0); } to{ transform: translateX(-1440px); } }
+@keyframes waveBob{ from{ transform: translateY(0); } to{ transform: translateY(var(--wave-bob, 8px)); } }
+
+/* Optional inner space (off by default) */
+.spacer-space{ width:100%; }
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .spacer-wave-section .wave-top .wave-tiles,
+  .spacer-wave-section .wave-bottom .wave-tiles,
+  .spacer-wave-section .wave-top,
+  .spacer-wave-section .wave-bottom{ animation: none !important; transform:none !important; }
+}
+
+/* Print */
+@media print{ .spacer-wave-section{ background:white !important; } .spacer-wave-section .wave-top, .spacer-wave-section .wave-bottom{ display:none; } }
+</style>
+
+{% schema %}
+{
+  "name": "Wave Spacer (Animated)",
+  "settings": [
+    { "type": "header", "content": "Background & Padding" },
+    { "type": "checkbox", "id": "use_gradient", "label": "Use Gradient Background", "default": false },
+    { "type": "color", "id": "background_color", "label": "Background Color", "default": "transparent" },
+    { "type": "color_background", "id": "background_gradient", "label": "Background Gradient", "default": "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%)" },
+    { "type": "range", "id": "spacer_padding_top", "label": "Padding Top", "min": 0, "max": 200, "step": 5, "default": 40, "unit": "px" },
+    { "type": "range", "id": "spacer_padding_bottom", "label": "Padding Bottom", "min": 0, "max": 200, "step": 5, "default": 40, "unit": "px" },
+
+    { "type": "header", "content": "Waves" },
+    { "type": "checkbox", "id": "show_top_wave", "label": "Show Top Wave", "default": true },
+    { "type": "checkbox", "id": "show_bottom_wave", "label": "Show Bottom Wave", "default": true },
+    { "type": "color", "id": "wave_color", "label": "Wave Color", "default": "#ffd4e5" },
+    { "type": "range", "id": "wave_overlap_top", "label": "Top Wave Height (overlap)", "min": 20, "max": 220, "step": 10, "default": 100, "unit": "px" },
+    { "type": "range", "id": "wave_overlap_bottom", "label": "Bottom Wave Height (overlap)", "min": 20, "max": 220, "step": 10, "default": 100, "unit": "px" },
+
+    { "type": "header", "content": "Wave Geometry" },
+    { "type": "select", "id": "wave_shape", "label": "Wave Shape", "options": [
+      { "value": "gentle", "label": "Gentle" },
+      { "value": "medium", "label": "Medium" },
+      { "value": "dramatic", "label": "Dramatic" },
+      { "value": "sharp", "label": "Sharp" },
+      { "value": "rounded", "label": "Rounded" }
+    ], "default": "medium" },
+    { "type": "range", "id": "wave_frequency", "label": "Wave Frequency", "min": 1, "max": 4, "step": 1, "default": 2 },
+    { "type": "range", "id": "wave_amplitude", "label": "Wave Amplitude", "min": 10, "max": 40, "step": 5, "default": 25 },
+
+    { "type": "header", "content": "Animation" },
+    { "type": "checkbox", "id": "animate_waves", "label": "Animate Waves", "default": true },
+    { "type": "range", "id": "wave_speed", "label": "Loop Speed (s)", "min": 2, "max": 30, "step": 1, "default": 12, "unit": "s" },
+    { "type": "range", "id": "wave_bob", "label": "Vertical Bob (px)", "min": 0, "max": 30, "step": 1, "default": 8, "unit": "px" },
+
+    { "type": "header", "content": "Advanced" },
+    { "type": "checkbox", "id": "extra_space", "label": "Add extra gap between waves and sections", "default": false },
+    { "type": "range", "id": "extra_space_height", "label": "Extra gap height", "min": 10, "max": 200, "step": 5, "default": 40, "unit": "px" },
+    { "type": "range", "id": "z_index", "label": "Z-index (stacking)", "min": 0, "max": 20, "step": 1, "default": 1 }
+  ],
+  "blocks": [],
+  "presets": [ { "name": "Wave Spacer (Animated)", "category": "Custom" } ],
+  "templates": ["index", "collection", "page", "product"]
+}
+{% endschema %}

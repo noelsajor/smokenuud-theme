@@ -1,0 +1,935 @@
+{% assign uid = section.id | replace: '_' , '' | downcase %}
+
+{%- comment -%} Build gradient string (linear or radial) with up to 4 colors. {%- endcomment -%}
+{% capture gradient_bg %}
+  {% if section.settings.use_gradient %}
+    {% if section.settings.grad_type == 'linear' %}
+      linear-gradient({{ section.settings.grad_angle }}deg,
+        {{ section.settings.grad_color_1 }} {{ section.settings.grad_stop_1 }}%,
+        {{ section.settings.grad_color_2 }} {{ section.settings.grad_stop_2 }}%
+        {% if section.settings.enable_grad_color_3 %}, {{ section.settings.grad_color_3 }} {{ section.settings.grad_stop_3 }}%{% endif %}
+        {% if section.settings.enable_grad_color_4 %}, {{ section.settings.grad_color_4 }} {{ section.settings.grad_stop_4 }}%{% endif %}
+      )
+    {% else %}
+      radial-gradient(
+        circle at {{ section.settings.radial_position }},
+        {{ section.settings.grad_color_1 }} {{ section.settings.grad_stop_1 }}%,
+        {{ section.settings.grad_color_2 }} {{ section.settings.grad_stop_2 }}%,
+        {% if section.settings.enable_grad_color_3 %}{{ section.settings.grad_color_3 }} {{ section.settings.grad_stop_3 }}%,{% endif %}
+        {% if section.settings.enable_grad_color_4 %}{{ section.settings.grad_color_4 }} {{ section.settings.grad_stop_4 }}%{% endif %}
+      )
+    {% endif %}
+  {% endif %}
+{% endcapture %}
+
+{%- comment -%} Compute RGBA for category card background (opacity controlled in settings) {%- endcomment -%}
+{% liquid
+  assign _bg_rgb = section.settings.category_bg_color | color_to_rgb
+  assign _bg_rgb_vals = _bg_rgb | replace: 'rgb(', '' | replace: ')', ''
+  assign _bg_alpha = section.settings.category_bg_opacity | times: 0.01
+%}
+
+{%- comment -%} Build responsive srcset helpers for background {%- endcomment -%}
+{% assign bg_src_400  = section.settings.background_image | image_url: width: 400 %}
+{% assign bg_src_800  = section.settings.background_image | image_url: width: 800 %}
+{% assign bg_src_1200 = section.settings.background_image | image_url: width: 1200 %}
+{% assign bg_src_1600 = section.settings.background_image | image_url: width: 1600 %}
+{% assign bg_src_2000 = section.settings.background_image | image_url: width: 2000 %}
+
+<section
+  id="split-hero-{{ uid }}"
+  class="ai-split-section-{{ uid }}"
+  role="region"
+  aria-labelledby="split-hero-heading-{{ uid }}"
+  data-bg-effect="{{ section.settings.background_effect }}"
+  style="
+    {% if section.settings.use_gradient and gradient_bg != blank %}
+      background: {{ gradient_bg | strip | strip_newlines }};
+    {% else %}
+      background-color: {{ section.settings.background_color }};
+    {% endif %}
+    --card-bg: rgba({{ _bg_rgb_vals }}, {{ _bg_alpha }});
+    --card-border-width: {{ section.settings.category_border_width }}px;
+    --card-border-color: {{ section.settings.category_border_color }};
+    --hover-rotate-deg: {{ section.settings.image_hover_rotate_deg }}deg;
+  "
+>
+  {% if section.settings.background_image %}
+    <div class="ai-split-section-bg-{{ uid }} ai-split-section-bg-{{ uid }}--{{ section.settings.background_effect }}" aria-hidden="true">
+      {% if section.settings.background_effect == 'fixed' %}
+        {%- assign bg_fixed_webp = section.settings.background_image | image_url: width: 2000, format: 'webp' -%}
+        {%- assign bg_fixed_jpg  = section.settings.background_image | image_url: width: 2000, format: 'pjpg' -%}
+        <div
+          style="
+            background-image: url('{{ bg_fixed_webp }}'), url('{{ bg_fixed_jpg }}');
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: {{ section.settings.image_alignment }};
+            width: 100%;
+            height: 100%;
+          "
+        ></div>
+        <noscript>
+          <img
+            src="{{ section.settings.background_image | image_url: width: 1200, format: 'pjpg' }}"
+            alt=""
+            width="1200"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          >
+        </noscript>
+      {% else %}
+        {%- comment -%} BACKGROUND IMAGE (WEBP + onerror fallback to pJPG) {%- endcomment -%}
+        <img
+          src="{{ section.settings.background_image | image_url: width: 1200, format: 'webp' }}"
+          srcset="
+            {{ section.settings.background_image | image_url: width: 400,  format: 'webp' }} 400w,
+            {{ section.settings.background_image | image_url: width: 800,  format: 'webp' }} 800w,
+            {{ section.settings.background_image | image_url: width: 1200, format: 'webp' }} 1200w,
+            {{ section.settings.background_image | image_url: width: 1600, format: 'webp' }} 1600w,
+            {{ section.settings.background_image | image_url: width: 2000, format: 'webp' }} 2000w
+          "
+          sizes="100vw"
+          alt=""
+          role="presentation"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width="{{ section.settings.background_image.width }}"
+          height="{{ section.settings.background_image.height }}"
+          onerror="this.onerror=null;this.src='{{ section.settings.background_image | image_url: width: 1200, format: 'pjpg' }}';"
+        >
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="ai-split-section-content-{{ uid }}">
+    <div class="ai-split-section-container-{{ uid }}">
+      <!-- Left column -->
+      <div class="ai-split-section-left-{{ uid }}">
+        {% if section.settings.heading != blank %}
+          <h1 id="split-hero-heading-{{ uid }}" class="ai-split-section-heading-{{ uid }}">{{ section.settings.heading }}</h1>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <h2 class="ai-split-section-subheading-{{ uid }}">{{ section.settings.subheading }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="ai-split-section-description-{{ uid }}">{{ section.settings.description }}</div>
+        {% endif %}
+
+        {% if section.settings.show_categories %}
+          <div class="ai-split-section-categories-wrapper-{{ uid }}">
+            <div class="ai-split-section-categories-{{ uid }}" role="list">
+              {% for i in (1..4) %}
+                {% liquid
+                  assign category_enabled_key = 'enable_category_' | append: i
+                  assign category_key         = 'category_' | append: i
+                  assign category_image_key   = 'category_' | append: i | append: '_image'
+                  assign category_title_key   = 'category_' | append: i | append: '_title'
+                  assign show_title_key       = 'show_category_' | append: i | append: '_title'
+
+                  assign category_enabled = section.settings[category_enabled_key]
+                  assign category         = section.settings[category_key]
+                  assign category_image   = section.settings[category_image_key]
+                  assign category_title   = section.settings[category_title_key]
+                  assign show_title       = section.settings[show_title_key]
+
+                  assign item_title = category_title
+                  if item_title == blank and category != blank
+                    assign item_title = category.title
+                  endif
+                  if item_title == blank
+                    assign item_title = 'Category ' | append: i
+                  endif
+                %}
+
+                {% if category_enabled %}
+                  {% if category != blank or category_image != blank or category_title != blank %}
+                    <a
+                      href="{% if category != blank %}{{ category.url }}{% else %}#{% endif %}"
+                      class="ai-split-section-category-{{ uid }}{% if section.settings.enable_category_shadow %} ai-split-section-category-{{ uid }}--shadow{% endif %}"
+                      role="listitem"
+                      aria-label="Browse {{ item_title }}"
+                    >
+                      <div class="ai-split-section-category-image-{{ uid }}">
+                        {%- comment -%} VALID LIQUID: no parentheses; use if/elsif {%- endcomment -%}
+                        {% if category_image %}
+                          {%- assign cat_src_400w_webp  = category_image | image_url: width: 400,  format: 'webp' -%}
+                          {%- assign cat_src_800w_webp  = category_image | image_url: width: 800,  format: 'webp' -%}
+                          {%- assign cat_src_1200w_webp = category_image | image_url: width: 1200, format: 'webp' -%}
+                          {%- assign cat_fallback_jpg   = category_image | image_url: width: 800,  format: 'pjpg' -%}
+                          <img
+                            src="{{ cat_src_800w_webp }}"
+                            srcset="{{ cat_src_400w_webp }} 400w, {{ cat_src_800w_webp }} 800w, {{ cat_src_1200w_webp }} 1200w"
+                            sizes="(max-width: 768px) 50vw, 240px"
+                            alt="{{ category_image.alt | default: item_title | escape }}"
+                            loading="lazy"
+                            decoding="async"
+                            width="400"
+                            height="200"
+                            onerror="this.onerror=null;this.src='{{ cat_fallback_jpg }}';"
+                          >
+                        {% elsif category != blank and category.featured_image %}
+                          {%- assign cimg = category.featured_image -%}
+                          {%- assign c_400w_webp   = cimg | image_url: width: 400,  format: 'webp' -%}
+                          {%- assign c_800w_webp   = cimg | image_url: width: 800,  format: 'webp' -%}
+                          {%- assign c_1200w_webp  = cimg | image_url: width: 1200, format: 'webp' -%}
+                          {%- assign c_fallback_jpg = cimg | image_url: width: 800,  format: 'pjpg' -%}
+                          <img
+                            src="{{ c_800w_webp }}"
+                            srcset="{{ c_400w_webp }} 400w, {{ c_800w_webp }} 800w, {{ c_1200w_webp }} 1200w"
+                            sizes="(max-width: 768px) 50vw, 240px"
+                            alt="{{ category.featured_image.alt | default: item_title | escape }}"
+                            loading="lazy"
+                            decoding="async"
+                            width="400"
+                            height="200"
+                            onerror="this.onerror=null;this.src='{{ c_fallback_jpg }}';"
+                          >
+                        {% else %}
+                          <div class="ai-split-section-category-placeholder-{{ uid }}" aria-hidden="true">
+                            {{ 'collection-apparel-1' | placeholder_svg_tag }}
+                          </div>
+                        {% endif %}
+
+                        {% if show_title %}
+                          <!-- Visible overlay on hover/focus (decorative) -->
+                          <div class="ai-category-title-overlay-{{ uid }}" aria-hidden="true">
+                            <span class="ai-category-title-text-{{ uid }}">{{ item_title }}</span>
+                          </div>
+                        {% endif %}
+                      </div>
+
+                      {% if show_title %}
+                        <!-- Semantic title for SEO and screen readers -->
+                        <h4 class="ai-sr-only-{{ uid }}">{{ item_title }}</h4>
+                      {% endif %}
+                    </a>
+                  {% else %}
+                    <div class="ai-split-section-empty-category-{{ uid }}" aria-live="polite">Configure category {{ i }}</div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        {%- comment -%} === NEW: CTA BUTTON UNDER CATEGORIES (LEFT SIDE) === {%- endcomment -%}
+        {% if section.settings.show_cta %}
+          <div class="ai-split-section-cta-{{ uid }}">
+            <a
+              href="{{ section.settings.cta_url | default: '#' }}"
+              class="dt-sc-btn{% if section.settings.cta_btn_padding %} ctm-btn-padding{% endif %}"
+              {% if section.settings.cta_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+              aria-label="{{ section.settings.cta_aria_label | default: section.settings.cta_label | default: 'See all' | escape }}"
+            >
+              <span>{{ section.settings.cta_label | default: 'See all' }}</span>
+              <!-- 36x36 arrow SVG, path uses currentColor -->
+              <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+                <path d="M14.1 8.4l9.5 9.6-9.5 9.6-1.7-1.7 7.1-7.2H8.4v-2.5h11.1l-7.1-7.2 1.7-1.6z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        {% endif %}
+        {%- comment -%} === /NEW CTA === {%- endcomment -%}
+      </div>
+
+      {% if section.settings.show_right_image %}
+      <!-- Right column -->
+      <div class="ai-split-section-right-{{ uid }}">
+        <div class="ai-split-section-right-image-{{ uid }}">
+          {% if section.settings.right_image %}
+            {% liquid
+              assign right_src_800  = section.settings.right_image | image_url: width: 800
+              assign right_src_1200 = section.settings.right_image | image_url: width: 1200
+              assign right_src_1600 = section.settings.right_image | image_url: width: 1600
+              assign right_alt      = section.settings.right_image.alt | default: section.settings.heading | default: 'Promotional image'
+            %}
+            {%- assign r_800w_webp   = section.settings.right_image | image_url: width: 800,  format: 'webp' -%}
+            {%- assign r_1200w_webp  = section.settings.right_image | image_url: width: 1200, format: 'webp' -%}
+            {%- assign r_1600w_webp  = section.settings.right_image | image_url: width: 1600, format: 'webp' -%}
+            {%- assign r_fallback_jpg = section.settings.right_image | image_url: width: 1200, format: 'pjpg' -%}
+            <img
+              src="{{ r_1200w_webp }}"
+              srcset="{{ r_800w_webp }} 800w, {{ r_1200w_webp }} 1200w, {{ r_1600w_webp }} 1600w"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="{{ right_alt | escape }}"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="{{ section.settings.right_image.width }}"
+              height="{{ section.settings.right_image.height }}"
+              {% unless section.settings.enable_float_animation %}style="animation:none"{% endunless %}
+              onerror="this.onerror=null;this.src='{{ r_fallback_jpg }}';"
+            >
+          {% else %}
+            <div class="ai-split-section-right-placeholder-{{ uid }}" aria-hidden="true">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-split-section-empty-state-{{ uid }}">
+                Add an image for the right side
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {%- comment -%}
+  JSON-LD ItemList for visible category links. Only renders if at least one real URL exists.
+  {%- endcomment -%}
+  {% assign pos = 0 %}
+  {% capture _list %}
+    {%- for i in (1..4) -%}
+      {%- assign category_enabled_key = 'enable_category_' | append: i -%}
+      {%- assign category_key = 'category_' | append: i -%}
+      {%- assign category_title_key = 'category_' | append: i | append: '_title' -%}
+      {%- assign category_enabled = section.settings[category_enabled_key] -%}
+      {%- assign category = section.settings[category_key] -%}
+      {%- assign category_title = section.settings[category_title_key] -%}
+      {%- if category_enabled and category != blank -%}
+        {%- assign pos = pos | plus: 1 -%}
+        {%- if pos > 1 -%},{%- endif -%}
+        {
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": "{{ category_title | default: category.title | escape }}",
+          "url": "{{ category.url }}"
+        }
+      {%- endif -%}
+    {%- endfor -%}
+  {% endcapture %}
+  {% if pos > 0 %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [{{ _list | strip }}]
+    }
+    </script>
+  {% endif %}
+</section>
+
+<style>
+/* Wrapper */
+.ai-split-section-{{ uid }}{
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+/* Background layer */
+.ai-split-section-bg-{{ uid }}{ position:absolute; inset:0; z-index:1; }
+.ai-split-section-bg-{{ uid }} img{
+  width:100%; height:100%;
+  object-fit:cover; object-position: {{ section.settings.image_alignment }};
+}
+.ai-split-section-bg-{{ uid }}--parallax{ transform: translateZ(0); will-change: transform; }
+
+/* Foreground content with adjustable padding */
+.ai-split-section-content-{{ uid }}{
+  position: relative; z-index:2;
+  padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px 20px;
+  min-height:500px;
+}
+.ai-split-section-container-{{ uid }}{
+  max-width: 1200px; margin:0 auto;
+  display:grid;
+  grid-template-columns: {% if section.settings.show_right_image %}1fr 1fr{% else %}1fr{% endif %};
+  gap:{% if section.settings.show_right_image %}60px{% else %}32px{% endif %};
+  align-items:center; min-height:400px;
+}
+
+/* Left column text alignment */
+.ai-split-section-left-{{ uid }}{
+  display:flex; flex-direction:column; gap:24px; text-align: {{ section.settings.content_alignment }};
+}
+
+/* Theme typography (sizes/colors controlled by settings) */
+.ai-split-section-heading-{{ uid }}{
+  font-size: {{ section.settings.heading_size }}px; color: {{ section.settings.heading_color }};
+  margin:0; line-height:1; font-weight: 800; margin-bottom: 32px; word-break: keep-all;  
+}
+.ai-split-section-subheading-{{ uid }}{
+  font-size: {{ section.settings.subheading_size }}px; color: {{ section.settings.subheading_color }};
+  margin:0; line-height:1.4; word-break: keep-all;
+}
+.ai-split-section-description-{{ uid }}{
+  font-size: {{ section.settings.description_size }}px; color: {{ section.settings.description_color }};
+  margin:0; line-height:1.6; word-break: keep-all;
+}
+
+/* Categories alignment wrapper */
+.ai-split-section-categories-wrapper-{{ uid }}{
+  display:flex;
+  {% if section.settings.categories_alignment == 'left' %}justify-content:flex-start;{% endif %}
+  {% if section.settings.categories_alignment == 'center' %}justify-content:center;{% endif %}
+  {% if section.settings.categories_alignment == 'right' %}justify-content:flex-end;{% endif %}
+}
+
+/* Categories grid (desktop/tablet) */
+.ai-split-section-categories-{{ uid }}{
+  display:grid;
+  grid-template-columns: repeat({{ section.settings.categories_per_row }}, 1fr);
+  gap:16px;
+  {% if section.settings.enable_image_overflow %}overflow:visible;{% endif %}
+  {% if section.settings.categories_alignment == 'center' %}max-width:fit-content;{% endif %}
+}
+
+/* Category card */
+.ai-split-section-category-{{ uid }}{
+  background-color: var(--card-bg);
+  border: var(--card-border-width) solid var(--card-border-color);
+  border-radius: {{ section.settings.category_border_radius }}px;
+  padding:4px; text-decoration:none; color: {{ section.settings.category_text_color }};
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1),
+    box-shadow .45s cubic-bezier(.22,1,.36,1),
+    background-color .45s cubic-bezier(.22,1,.36,1),
+    color .45s cubic-bezier(.22,1,.36,1);
+  will-change: transform, box-shadow;
+  display:block; text-align:center; position:relative;
+  {% if section.settings.enable_image_overflow %}overflow:visible;{% endif %}
+  max-width: 240px;
+}
+.ai-split-section-category-{{ uid }}:hover{
+  color: {{ section.settings.category_hover_text_color }};
+  background-color: {{ section.settings.category_hover_bg_color }};
+  transform: translateY(-2px);
+}
+.ai-split-section-category-{{ uid }}:focus-visible{
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.ai-split-section-category-{{ uid }}--shadow{ box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+.ai-split-section-category-{{ uid }}--shadow:hover{ box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+
+/* Category image box */
+.ai-split-section-category-image-{{ uid }}{
+  width:100%; aspect-ratio: {{ section.settings.category_aspect_ratio }};
+  margin-bottom:0; border-radius: {{ section.settings.category_image_radius }}px;
+  background-color: {{ section.settings.category_image_bg_color }};
+  {% if section.settings.enable_image_overflow %}overflow:visible; position:relative;{% else %}overflow:hidden; position:relative;{% endif %}
+}
+.ai-split-section-category-image-{{ uid }} img{
+  width:100%; height:100%; object-fit: {{ section.settings.image_fit }};
+  border-radius: {{ section.settings.category_image_radius }}px;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  {% if section.settings.enable_image_overflow %}
+    transform: scale({{ section.settings.image_overflow_scale }});
+    {% case section.settings.image_overflow_direction %}
+      {% when 'top' %}transform-origin:center bottom;
+      {% when 'bottom' %}transform-origin:center top;
+      {% when 'left' %}transform-origin:right center;
+      {% when 'right' %}transform-origin:left center;
+      {% when 'top-left' %}transform-origin:right bottom;
+      {% when 'top-right' %}transform-origin:left bottom;
+      {% when 'bottom-left' %}transform-origin:right top;
+      {% when 'bottom-right' %}transform-origin:left top;
+      {% else %}transform-origin:center center;
+    {% endcase %}
+    z-index:2; position:relative;
+  {% endif %}
+}
+
+/* Subtle rotation on hover */
+.ai-split-section-category-{{ uid }}:hover .ai-split-section-category-image-{{ uid }} img{
+  {% if section.settings.enable_image_hover_rotate %}
+    {% if section.settings.enable_image_overflow %}
+      transform: scale({{ section.settings.image_overflow_scale }}) rotate(var(--hover-rotate-deg));
+    {% else %}
+      transform: rotate(var(--hover-rotate-deg));
+    {% endif %}
+  {% else %}
+    {% if section.settings.enable_image_overflow %}
+      transform: scale({{ section.settings.image_overflow_scale }});
+    {% else %}
+      transform: none;
+    {% endif %}
+  {% endif %}
+}
+
+/* Placeholder */
+.ai-split-section-category-placeholder-{{ uid }}{
+  width:100%; height:100%; background-color: {{ section.settings.category_image_bg_color }};
+  display:flex; align-items:center; justify-content:center; border-radius: {{ section.settings.category_image_radius }}px;
+  {% if section.settings.enable_image_overflow %}
+    transform: scale({{ section.settings.image_overflow_scale }});
+    {% case section.settings.image_overflow_direction %}
+      {% when 'top' %}transform-origin:center bottom;
+      {% when 'bottom' %}transform-origin:center top;
+      {% when 'left' %}transform-origin:right center;
+      {% when 'right' %}transform-origin:left center;
+      {% when 'top-left' %}transform-origin:right bottom;
+      {% when 'top-right' %}transform-origin:left bottom;
+      {% when 'bottom-left' %}transform-origin:right top;
+      {% when 'bottom-right' %}transform-origin:left top;
+      {% else %}transform-origin:center center;
+    {% endcase %}
+    z-index:2; position:relative;
+  {% endif %}
+}
+.ai-split-section-category-placeholder-{{ uid }} svg{ width:30px; height:30px; opacity:.5; }
+
+/* ==== HOVER TITLE OVERLAY (uses theme font) ==== */
+.ai-category-title-overlay-{{ uid }}{
+  position:absolute; inset:0;
+  display:flex; align-items:flex-end; justify-content:center;
+  padding:12px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0,0,0,0) 60%);
+  opacity:0; transform: translateY(8px);
+  transition: opacity .35s cubic-bezier(.22,1,.36,1), transform .35s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+  border-radius: {{ section.settings.category_image_radius }}px;
+}
+.ai-category-title-text-{{ uid }}{
+  color:#fff; text-align:center; font-size: 32px; font-weight:600;
+  font-family: inherit;
+}
+.ai-split-section-category-{{ uid }}:hover .ai-category-title-overlay-{{ uid }},
+.ai-split-section-category-{{ uid }}:focus-visible .ai-category-title-overlay-{{ uid }}{
+  opacity:1; transform: translateY(0);
+}
+/* Always show titles on touch devices with no hover */
+@media (hover: none){
+  .ai-category-title-overlay-{{ uid }}{ opacity:1; transform:none; }
+}
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ai-category-title-overlay-{{ uid }}{ transition:none; }
+}
+
+/* Screen-reader-only helper */
+.ai-sr-only-{{ uid }}{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border:0 !important;
+}
+
+/* Right image (floating) */
+.ai-split-section-right-{{ uid }}{ position:relative; }
+.ai-split-section-right-image-{{ uid }}{
+  width:100%; height:100%; min-height:400px; border-radius: {{ section.settings.right_image_radius }}px; overflow:hidden;
+}
+.ai-split-section-right-image-{{ uid }} img{
+  width:100%; height:100%; object-fit:cover;
+  animation: ai-float-{{ uid }} {{ section.settings.float_duration }}s ease-in-out infinite;
+}
+.ai-split-section-right-placeholder-{{ uid }}{
+  width:100%; height:100%; min-height:400px; background:#f4f4f4;
+  display:flex; align-items:center; justify-content:center; border-radius: {{ section.settings.right_image_radius }}px; position:relative;
+}
+.ai-split-section-right-placeholder-{{ uid }} svg{
+  width:100px; height:100px; opacity:.3; animation: ai-float-{{ uid }} {{ section.settings.float_duration }}s ease-in-out infinite;
+}
+.ai-split-section-empty-state-{{ uid }}{
+  position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+  padding:8px 16px; background:rgba(255,255,255,.9); border-radius:4px; font-size:12px; color:#666; text-align:center; pointer-events:none;
+}
+
+/* Float keyframes */
+@keyframes ai-float-{{ uid }}{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-{{ section.settings.float_intensity }}px); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ai-split-section-right-image-{{ uid }} img,
+  .ai-split-section-right-placeholder-{{ uid }} svg{ animation:none !important; }
+  .ai-split-section-category-{{ uid }}{ transition: none !important; }
+  .ai-split-section-category-image-{{ uid }} img{ transition: none !important; }
+}
+
+@media (max-width: 768px){
+  .ai-split-section-container-{{ uid }}{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "descriptions"
+      "heading"
+      {% if section.settings.show_right_image %}"image"{% endif %}
+      "categories";
+    align-items: start;
+    justify-items: stretch;  
+    gap: 0;
+  }
+
+  .ai-category-title-text-{{ uid }}{
+    color:#fff; text-align:center; font-size: 20px; font-weight:600;
+    font-family: inherit;
+  }
+
+  /* Let the left column's children participate in the grid areas */
+  .ai-split-section-left-{{ uid }}{
+    display: contents;
+  }
+
+  /* Heading block spans full width */
+  .ai-split-section-heading-{{ uid }}{
+    font-size: 3.2rem;
+    word-break: keep-all;
+  }
+  .ai-split-section-subheading-{{ uid }},
+  .ai-split-section-description-{{ uid }}{
+    grid-area: heading;
+    text-align: left;
+    width: 100%;
+    line-height: 1.1;
+    word-break: keep-all;
+  }
+
+  /* Categories now sit right after heading */
+  .ai-split-section-categories-wrapper-{{ uid }}{
+    grid-area: categories;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Responsive grid using your mobile setting */
+  .ai-split-section-categories-{{ uid }}{
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.categories_per_row_mobile }}, 1fr);
+    gap: 12px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-split-section-category-{{ uid }}{
+    text-align: center;
+    padding: 4px;
+  }
+
+  .ai-split-section-category-image-{{ uid }}{
+    aspect-ratio: 1 / 1;
+    margin-bottom: 0;
+  }
+
+  .ai-category-title-overlay-{{ uid }}{
+    padding: 4px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0,0,0,0) 55%);
+    border-radius: 16px;
+  }
+
+  {% if section.settings.show_right_image %}
+  .ai-split-section-right-{{ uid }}{
+    grid-area: image;
+    display: block;
+    width: 100%;
+  }
+  .ai-split-section-right-image-{{ uid }}{
+    width: 100%;
+    max-width: none;
+    min-height: 320px;
+    border-radius: {{ section.settings.right_image_radius }}px;
+    overflow: hidden;
+  }
+  {% endif %}
+
+  .ai-split-section-content-{{ uid }}{
+    padding: 28px 16px 40px 16px;
+    min-height: auto;
+  }
+
+  .ai-split-section-category-image-{{ uid }} img{ transform-origin: center bottom !important; }
+  .ai-split-section-category-placeholder-{{ uid }}{ transform-origin: center bottom !important; }
+}
+
+/* --- Stacking order (no structural changes) --- */
+.ai-split-section-category-{{ uid }}{ position: relative; z-index: 1; }
+.ai-split-section-category-{{ uid }}:hover{ z-index: 10; }
+.ai-split-section-category-image-{{ uid }}{ position: relative; }
+.ai-split-section-category-image-{{ uid }} img{ z-index: 1 !important; position: relative; }
+.ai-split-section-category-placeholder-{{ uid }}{ z-index: 1 !important; position: relative; }
+.ai-category-title-overlay-{{ uid }}{ z-index: 3 !important; pointer-events: none; }
+
+/* Subtle overlay for images */
+.ai-split-section-category-image-{{ uid }}::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: {{ section.settings.category_image_radius }}px;
+  z-index: 2;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+}
+
+/* === NEW: CTA alignment & spacing (keeps theme button styles intact) === */
+.ai-split-section-cta-{{ uid }}{
+  margin-top: 16px;
+  {% if section.settings.cta_alignment == 'left' %}text-align: left;{% endif %}
+  {% if section.settings.cta_alignment == 'center' %}text-align: center;{% endif %}
+  {% if section.settings.cta_alignment == 'right' %}text-align: right;{% endif %}
+}
+.ai-split-section-cta-{{ uid }} .dt-sc-btn{
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none;
+  transition: color .2s ease, opacity .2s ease, transform .2s ease;
+}
+.ai-split-section-cta-{{ uid }} .dt-sc-btn svg{
+  width: 36px; height: 36px;
+}
+</style>
+
+<script>
+  // Parallax + robust drag-to-scroll (covers iOS Safari)
+  document.addEventListener('DOMContentLoaded', function(){
+    var section = document.getElementById('split-hero-{{ uid }}');
+    if (!section) return;
+
+    /* Parallax */
+    if (section.dataset.bgEffect === 'parallax') {
+      var bg = section.querySelector('.ai-split-section-bg-{{ uid }}');
+      if (bg){
+        var onScroll = function(){
+          var rect = section.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+          var scrolled = window.pageYOffset || document.documentElement.scrollTop || 0;
+          var rate = scrolled * -0.5;
+          bg.style.transform = 'translateY(' + rate + 'px)';
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    }
+
+    /* Drag-to-scroll for categories */
+    var scroller = section.querySelector('.ai-split-section-categories-{{ uid }}');
+    if (!scroller) return;
+
+    scroller.style.webkitOverflowScrolling = 'touch';
+
+    var isPointerDown = false, startX = 0, startY = 0, startScroll = 0, moved = false;
+
+    scroller.addEventListener('pointerdown', function(e){
+      isPointerDown = true; moved = false;
+      startX = e.clientX; startY = e.clientY; startScroll = scroller.scrollLeft;
+      try { scroller.setPointerCapture(e.pointerId); } catch(e){}
+    });
+    scroller.addEventListener('pointermove', function(e){
+      if (!isPointerDown) return;
+      var dx = e.clientX - startX;
+      scroller.scrollLeft = startScroll - dx;
+      if (Math.abs(dx) > 6) moved = true;
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      scroller.addEventListener(ev, function(){ isPointerDown = false; });
+    });
+
+    scroller.addEventListener('touchstart', function(e){
+      if (!e.touches || !e.touches.length) return;
+      startX = e.touches[0].pageX;
+      startY = e.touches[0].pageY;
+      startScroll = scroller.scrollLeft;
+      moved = false;
+    }, { passive: true });
+
+    scroller.addEventListener('touchmove', function(e){
+      if (!e.touches || !e.touches.length) return;
+      var dx = e.touches[0].pageX - startX;
+      var dy = e.touches[0].pageY - startY;
+
+      if (Math.abs(dx) > Math.abs(dy)) {
+        e.preventDefault();
+        scroller.scrollLeft = startScroll - dx;
+        if (Math.abs(dx) > 6) moved = true;
+      }
+    }, { passive: false });
+
+    scroller.addEventListener('touchend', function(){}, { passive: true });
+
+    scroller.addEventListener('click', function(e){
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Split hero section",
+  "settings": [
+    { "type": "header", "content": "Section spacing" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 200, "step": 5, "default": 60, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 200, "step": 5, "default": 60, "unit": "px" },
+
+    { "type": "header", "content": "Background image (optional)" },
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    { "type": "select", "id": "image_alignment", "label": "Background image alignment",
+      "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}],
+      "default": "center"
+    },
+    { "type": "select", "id": "background_effect", "label": "Background effect",
+      "options": [{"value":"none","label":"None"},{"value":"fixed","label":"Fixed"},{"value":"Parallax","label":"Parallax"}],
+      "default": "none"
+    },
+
+    { "type": "header", "content": "Background color / gradient" },
+    { "type": "checkbox", "id": "use_gradient", "label": "Use gradient instead of solid color", "default": true },
+    { "type": "color", "id": "background_color", "label": "Solid background color (fallback)", "default": "#ffffff" },
+
+    { "type": "select", "id": "grad_type", "label": "Gradient type",
+      "options": [
+        { "value": "linear", "label": "Linear" },
+        { "value": "radial", "label": "Radial" }
+      ],
+      "default": "linear"
+    },
+    { "type": "range", "id": "grad_angle", "label": "Linear angle (°)", "min": 0, "max": 360, "step": 5, "default": 135, "unit": "deg" },
+
+    { "type": "select", "id": "radial_position", "label": "Radial position",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "top left", "label": "Top left" },
+        { "value": "top center", "label": "Top" },
+        { "value": "top right", "label": "Top right" },
+        { "value": "center left", "label": "Left" },
+        { "value": "center right", "label": "Right" },
+        { "value": "bottom left", "label": "Bottom left" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "bottom right", "label": "Bottom right" }
+      ],
+      "default": "center center"
+    },
+
+    { "type": "color", "id": "grad_color_1", "label": "Gradient color 1", "default": "#ff9a9e" },
+    { "type": "range", "id": "grad_stop_1", "label": "Stop 1 (%)", "min": 0, "max": 100, "step": 1, "default": 0, "unit": "%" },
+
+    { "type": "color", "id": "grad_color_2", "label": "Gradient color 2", "default": "#fad0c4" },
+    { "type": "range", "id": "grad_stop_2", "label": "Stop 2 (%)", "min": 0, "max": 100, "step": 1, "default": 50, "unit": "%" },
+
+    { "type": "checkbox", "id": "enable_grad_color_3", "label": "Add color 3", "default": false },
+    { "type": "color", "id": "grad_color_3", "label": "Gradient color 3", "default": "#fcb69f" },
+    { "type": "range", "id": "grad_stop_3", "label": "Stop 3 (%)", "min": 0, "max": 100, "step": 1, "default": 75, "unit": "%" },
+
+    { "type": "checkbox", "id": "enable_grad_color_4", "label": "Add color 4", "default": false },
+    { "type": "color", "id": "grad_color_4", "label": "Gradient color 4", "default": "#a1c4fd" },
+    { "type": "range", "id": "grad_stop_4", "label": "Stop 4 (%)", "min": 0, "max": 100, "step": 1, "default": 100, "unit": "%" },
+
+    { "type": "header", "content": "Content" },
+    { "type": "select", "id": "content_alignment", "label": "Content alignment",
+      "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}],
+      "default": "left"
+    },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Welcome to our store" },
+    { "type": "range", "id": "heading_size", "min": 20, "max": 80, "step": 2, "unit": "px", "label": "Heading size", "default": 48 },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#000000" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Discover our amazing products" },
+    { "type": "range", "id": "subheading_size", "min": 14, "max": 40, "step": 1, "unit": "px", "label": "Subheading size", "default": 24 },
+    { "type": "color", "id": "subheading_color", "label": "Subheading color", "default": "#333333" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Browse through our carefully curated collection of products designed to meet your needs." },
+    { "type": "range", "id": "description_size", "min": 12, "max": 24, "step": 1, "unit": "px", "label": "Description size", "default": 16 },
+    { "type": "color", "id": "description_color", "label": "Description color", "default": "#666666" },
+
+    { "type": "header", "content": "Right side image" },
+    { "type": "checkbox", "id": "show_right_image", "label": "Show right side image", "default": true },
+    { "type": "image_picker", "id": "right_image", "label": "Right side image" },
+    { "type": "range", "id": "right_image_radius", "min": 0, "max": 30, "step": 1, "unit": "px", "label": "Image border radius", "default": 8 },
+    { "type": "checkbox", "id": "enable_float_animation", "label": "Enable floating animation", "default": true },
+    { "type": "range", "id": "float_intensity", "min": 5, "max": 30, "step": 1, "unit": "px", "label": "Float intensity", "default": 15 },
+    { "type": "range", "id": "float_duration", "min": 2, "max": 8, "step": 1, "unit": "s", "label": "Float duration", "default": 4 },
+
+    { "type": "header", "content": "Categories" },
+    { "type": "checkbox", "id": "show_categories", "label": "Show categories", "default": true },
+    { "type": "select", "id": "categories_alignment", "label": "Categories alignment",
+      "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}],
+      "default": "left"
+    },
+    { "type": "select", "id": "categories_per_row", "label": "Categories per row",
+      "options": [{"value":"1","label":"1"},{"value":"2","label":"2"},{"value":"3","label":"3"},{"value":"4","label":"4"}],
+      "default": "2"
+    },
+    { "type": "select", "id": "categories_per_row_mobile", "label": "Categories per row on mobile",
+      "options": [{"value":"1","label":"1"},{"value":"2","label":"2"},{"value":"3","label":"3"}],
+      "default": "3"
+    },
+    { "type": "checkbox", "id": "enable_category_shadow", "label": "Enable category shadow", "default": true },
+
+    { "type": "header", "content": "Category image settings" },
+    { "type": "text", "id": "category_aspect_ratio", "label": "Image aspect ratio", "default": "4/3",
+      "info": "Examples: 1/1 (square), 4/3 (landscape), 3/4 (portrait), 16/9 (wide)" },
+    { "type": "select", "id": "image_fit", "label": "Image fit",
+      "options": [{"value":"cover","label":"Cover (fill container)"},{"value":"contain","label":"Contain (fit within container)"},{"value":"fill","label":"Fill (stretch to fit)"}],
+      "default": "cover"
+    },
+    { "type": "checkbox", "id": "enable_image_overflow", "label": "Enable image overflow", "default": false },
+    { "type": "range", "id": "image_overflow_scale", "min": 1, "max": 2, "step": 0.1, "label": "Image overflow scale", "default": 1.3 },
+    { "type": "select", "id": "image_overflow_direction", "label": "Overflow direction",
+      "options": [
+        {"value":"center","label":"Center"},{"value":"top","label":"Top"},{"value":"bottom","label":"Bottom"},
+        {"value":"left","label":"Left"},{"value":"right","label":"Right"},
+        {"value":"top-left","label":"Top left"},{"value":"top-right","label":"Top right"},
+        {"value":"bottom-left","label":"Bottom left"},{"value":"bottom-right","label":"Bottom right"}
+      ],
+      "default": "center"
+    },
+
+    { "type": "header", "content": "Category 1" },
+    { "type": "checkbox", "id": "enable_category_1", "label": "Enable category 1", "default": true },
+    { "type": "collection", "id": "category_1", "label": "Collection" },
+    { "type": "image_picker", "id": "category_1_image", "label": "Custom image" },
+    { "type": "text", "id": "category_1_title", "label": "Custom title" },
+    { "type": "checkbox", "id": "show_category_1_title", "label": "Show title", "default": true },
+
+    { "type": "header", "content": "Category 2" },
+    { "type": "checkbox", "id": "enable_category_2", "label": "Enable category 2", "default": true },
+    { "type": "collection", "id": "category_2", "label": "Collection" },
+    { "type": "image_picker", "id": "category_2_image", "label": "Custom image" },
+    { "type": "text", "id": "category_2_title", "label": "Custom title" },
+    { "type": "checkbox", "id": "show_category_2_title", "label": "Show title", "default": true },
+
+    { "type": "header", "content": "Category 3" },
+    { "type": "checkbox", "id": "enable_category_3", "label": "Enable category 3", "default": false },
+    { "type": "collection", "id": "category_3", "label": "Collection" },
+    { "type": "image_picker", "id": "category_3_image", "label": "Custom image" },
+    { "type": "text", "id": "category_3_title", "label": "Custom title" },
+    { "type": "checkbox", "id": "show_category_3_title", "label": "Show title", "default": true },
+
+    { "type": "header", "content": "Category 4" },
+    { "type": "checkbox", "id": "enable_category_4", "label": "Enable category 4", "default": false },
+    { "type": "collection", "id": "category_4", "label": "Collection" },
+    { "type": "image_picker", "id": "category_4_image", "label": "Custom image" },
+    { "type": "text", "id": "category_4_title", "label": "Custom title" },
+    { "type": "checkbox", "id": "show_category_4_title", "label": "Show title", "default": true },
+
+    { "type": "header", "content": "Category style" },
+    { "type": "color", "id": "category_bg_color", "label": "Card background color", "default": "#f8f8f8" },
+    { "type": "range", "id": "category_bg_opacity", "label": "Card background opacity", "min": 0, "max": 100, "step": 1, "default": 100, "unit": "%" },
+    { "type": "color", "id": "category_hover_bg_color", "label": "Card hover background color", "default": "#e8e8e8" },
+    { "type": "color", "id": "category_image_bg_color", "label": "Image background color", "default": "#f0f0f0" },
+    { "type": "color", "id": "category_text_color", "label": "Text color", "default": "#000000" },
+    { "type": "color", "id": "category_hover_text_color", "label": "Hover text color", "default": "#000000" },
+    { "type": "color", "id": "category_border_color", "label": "Card border color", "default": "#e5e5e5" },
+    { "type": "range", "id": "category_border_width", "label": "Card border width", "min": 0, "max": 8, "step": 1, "default": 1, "unit": "px" },
+    { "type": "range", "id": "category_border_radius", "min": 0, "max": 20, "step": 1, "unit": "px", "label": "Card border radius", "default": 8 },
+    { "type": "range", "id": "category_image_radius", "min": 0, "max": 20, "step": 1, "unit": "px", "label": "Image border radius", "default": 4 },
+
+    { "type": "header", "content": "Hover effects" },
+    { "type": "checkbox", "id": "enable_image_hover_rotate", "label": "Rotate category image on hover", "default": true },
+    { "type": "range", "id": "image_hover_rotate_deg", "label": "Rotation amount (deg)", "min": 0, "max": 10, "step": 1, "default": 3, "unit": "deg" },
+
+    { "type": "header", "content": "Button under categories" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show button", "default": true },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "See all" },
+    { "type": "url", "id": "cta_url", "label": "Button link" },
+    { "type": "checkbox", "id": "cta_new_tab", "label": "Open link in new tab", "default": false },
+    { "type": "checkbox", "id": "cta_btn_padding", "label": "Use ctm-btn-padding class", "default": false },
+    { "type": "text", "id": "cta_aria_label", "label": "Accessible label (optional)", "info": "Defaults to the button label." },
+    { "type": "select", "id": "cta_alignment", "label": "Button alignment",
+      "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}],
+      "default": "left"
+    }
+  ],
+  "presets": [{ "name": "Split hero section" }]
+}
+{% endschema %}

@@ -1,0 +1,207 @@
+{% doc %}
+  @prompt
+    I need to create a spacer that allows me to upload an image that spin in the same place , I want to be able to align left, center or right
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-spinning-spacer-{{ ai_gen_id }} {
+    display: flex;
+    {% if block.settings.alignment == 'left' %}
+      justify-content: flex-start;
+    {% elsif block.settings.alignment == 'center' %}
+      justify-content: center;
+    {% elsif block.settings.alignment == 'right' %}
+      justify-content: flex-end;
+    {% endif %}
+    align-items: center;
+    padding: {{ block.settings.spacing_top }}px 0 {{ block.settings.spacing_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-spinning-spacer-image-wrapper-{{ ai_gen_id }} {
+    width: {{ block.settings.image_size }}px;
+    height: {{ block.settings.image_size }}px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ai-spinning-spacer-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: ai-spin-{{ ai_gen_id }} {{ block.settings.rotation_speed }}s linear infinite;
+  }
+
+  .ai-spinning-spacer-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .ai-spinning-spacer-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    animation: ai-spin-{{ ai_gen_id }} {{ block.settings.rotation_speed }}s linear infinite;
+  }
+
+  .ai-spinning-spacer-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+  }
+
+  @keyframes ai-spin-{{ ai_gen_id }} {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-spinning-spacer-{{ ai_gen_id }} {
+      padding: {{ block.settings.spacing_top | times: 0.7 }}px 0 {{ block.settings.spacing_bottom | times: 0.7 }}px;
+    }
+
+    .ai-spinning-spacer-image-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.image_size | times: 0.7 }}px;
+      height: {{ block.settings.image_size | times: 0.7 }}px;
+      z-index: 1;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-spinning-spacer-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-spinning-spacer-image-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.image %}
+      <img
+        src="{{ block.settings.image | image_url: width: 800 }}"
+        alt="{{ block.settings.image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.image.width }}"
+        height="{{ block.settings.image.height }}"
+        class="ai-spinning-spacer-image-{{ ai_gen_id }}"
+      >
+    {% else %}
+      <div class="ai-spinning-spacer-placeholder-{{ ai_gen_id }}">
+        {{ 'image' | placeholder_svg_tag }}
+        <div class="ai-spinning-spacer-empty-state-{{ ai_gen_id }}">
+          Add an image to spin
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Spinning image spacer",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 50,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Image size",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "rotation_speed",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "unit": "s",
+      "label": "Rotation speed",
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Top spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Bottom spacing",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Spinning image spacer"
+    }
+  ]
+}
+{% endschema %}

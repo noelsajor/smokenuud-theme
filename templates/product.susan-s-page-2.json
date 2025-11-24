@@ -1,0 +1,631 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_bBLB6m": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_QBRHxW": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/susan_bg_2.png",
+            "image_overlay_opacity": 0,
+            "heading": "Nuud Stamina Aphrodisiac Gummies",
+            "heading_size": "hxxl",
+            "subheading": "More energy, more confidence, more pleasure with a 100% natural and safe supplement. ",
+            "button_label": "Buy now",
+            "link": "shopify://products/stamina-aphrodisiac-gummies-male-enhancer-1",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "top-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide_9JAWdX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/susan_bg_dd3ecb16-dbf0-41c9-acc0-743bf2883ca4.png",
+            "image_overlay_opacity": 0,
+            "heading": "Introducing the 3-Way Lusty Bundle",
+            "heading_size": "hxxl",
+            "subheading": "Ready to move past routine? The Ultimate Pleasure Bundle is scientifically and botanically crafted to activate communication and sensation in the bedroom. It’s your invitation to bypass stress, banish inhibitions, and dive heart-first into a new kind of shared pleasure.",
+            "button_label": "Buy now",
+            "link": "shopify://products/lusty-bundle-for-couples",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "top-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        }
+      },
+      "block_order": [
+        "slide_QBRHxW",
+        "slide_9JAWdX"
+      ],
+      "custom_css": [
+        ".slideshow__controls {display: none;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "ambient",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "spacer_wave_MkCLrj": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#ff4881",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "multicolumn_nHNcMM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_aidh8A": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/truck.svg",
+            "title": "Free Shipping",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NQm4NQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/timer-reset.svg",
+            "title": "Limited Time",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ntPRpw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/message-circle-heart.svg",
+            "title": "Curated by Susan Bratton",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_aidh8A",
+        "column_NQm4NQ",
+        "column_ntPRpw"
+      ],
+      "custom_css": [
+        "h3 {color: #2d0288;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "spacer_wave_3hJ83F": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": false,
+        "show_bottom_wave": true,
+        "wave_color": "#ff4881",
+        "wave_overlap_top": 20,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "rich_text_wfMEkr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_edwdkK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Know Our Lusty Treats",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_edwdkK"
+      ],
+      "custom_css": [
+        "h2 {word-break: keep-all;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 40
+      }
+    },
+    "featured_product_tNTBTE": {
+      "type": "featured-product",
+      "blocks": {
+        "text_WdiMaW": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_UndjKx": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_JFXnFc": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_yxUERP": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_xLdJQd": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_xm8BWA": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_xpbcPe": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_WdiMaW",
+        "title_UndjKx",
+        "price_JFXnFc",
+        "variant_picker_yxUERP",
+        "quantity_selector_xLdJQd",
+        "buy_buttons_xm8BWA",
+        "share_xpbcPe"
+      ],
+      "custom_css": [
+        "div {border-radius: 32px;}",
+        "h2 {word-break: keep-all;}"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "lusty-his-or-her-bundle",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": true,
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_MT4bzC": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_y36YeB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unboxing your lusty Bundles for couples",
+            "heading_size": "h0"
+          }
+        },
+        "text_4MVaEA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>\"I’ve partnered with my friends at NUUD to give you potent natural aphrodisiacs that ignite desire, heighten your senses, and deepen your connection.<br/><br/>This bundle harnesses the enchanting properties of hemp and exotic botanicals to spark curiosity and invite you to explore uncharted territories of pleasure.\"</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "caption_zNJU9Y": {
+          "type": "caption",
+          "settings": {
+            "caption": "Susan Bratton",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "button_iCAkkf": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Add to cart",
+            "button_link": "shopify://products/stamina-aphrodisiac-gummies-male-enhancer-1",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_y36YeB",
+        "text_4MVaEA",
+        "caption_zNJU9Y",
+        "button_iCAkkf"
+      ],
+      "custom_css": [
+        "h2 {word-break: keep-all;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/susan2_8c720c44-1700-4d72-b65f-68a5b2c5e921.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "collapsible_content_9Vki7c": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_WdLPRz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do NUUD Pleasures products enhance arousal?",
+            "icon": "none",
+            "row_content": "<p>Our proprietary blend is meticulously designed with powerful natural aphrodisiacs to awaken desire.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qe9W6b": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are all NUUD products infused with hemp?",
+            "icon": "none",
+            "row_content": "<p>Our Libido Enhancers are crafted without hemp derivatives yet contain a potent mix of natural aphrodisiacs for those seeking pure stimulation.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_q9akXg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does NUUD offer free shipping?",
+            "icon": "none",
+            "row_content": "<p>Absolutely, we provide free shipping within the United States for all orders exceeding $19.50.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4jRbw8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use products designed for the opposite gender?",
+            "icon": "none",
+            "row_content": "<p>Certainly. While our formulas are specifically designed for each gender, they are universally effective and safe, allowing anyone to experience their aphrodisiac qualities.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LzLNNq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What can I expect from an intimate encounter with NUUD products?",
+            "icon": "none",
+            "row_content": "<p>NUUD Pleasures products are designed to give you enhanced performance, a surge in libido, a profound connection with your own sensuality and your partner, and an unforgettable pleasure that deepens your intimacy.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_WdLPRz",
+        "collapsible_row_qe9W6b",
+        "collapsible_row_q9akXg",
+        "collapsible_row_4jRbw8",
+        "collapsible_row_LzLNNq"
+      ],
+      "custom_css": [
+        "h2 {word-break: keep-all;}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-3",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_product_gQfPrw": {
+      "type": "featured-product",
+      "blocks": {
+        "text_8LVXRY": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_kAJHa4": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_VTMkH9": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_6HfDTL": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_Va6pf4": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_AyrBzy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_mnqYcU": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_8LVXRY",
+        "title_kAJHa4",
+        "price_VTMkH9",
+        "variant_picker_6HfDTL",
+        "quantity_selector_Va6pf4",
+        "buy_buttons_AyrBzy",
+        "share_mnqYcU"
+      ],
+      "custom_css": [
+        "h2 {word-break: keep-all;}"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "lusty-his-or-her-bundle",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": true,
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_jxwt67": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#881d3e",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    }
+  },
+  "order": [
+    "slideshow_bBLB6m",
+    "spacer_wave_MkCLrj",
+    "multicolumn_nHNcMM",
+    "spacer_wave_3hJ83F",
+    "rich_text_wfMEkr",
+    "featured_product_tNTBTE",
+    "image_with_text_MT4bzC",
+    "collapsible_content_9Vki7c",
+    "related-products",
+    "main",
+    "featured_product_gQfPrw",
+    "spacer_wave_jxwt67"
+  ]
+}

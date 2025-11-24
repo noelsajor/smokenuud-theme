@@ -1,0 +1,172 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_BKJtVj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dQUxFU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sensual Exploration Products for Deeper Intimacy",
+            "heading_size": "h1"
+          }
+        },
+        "text_Wt7fij": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to the start of your journey into pleasure. Our curated Sensual Exploration Collection is designed to unlock new dimensions of intimacy and connection. Discover high-quality natural enhancers alongside cutting-edge pleasure tools, including our highly sought-after HHC gummies and diffusers. Whether you're seeking a gentle lift or profound sensual elevation, you’ll find the perfect tool to enrich your sexual wellness routine.</p><p>Start Your Sensual Journey: Explore the Full Collection Now.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dQUxFU",
+        "text_Wt7fij"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide": {
+          "type": "slide",
+          "settings": {
+            "image_overlay_opacity": 10,
+            "heading": "Collections",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-2"
+          }
+        }
+      },
+      "block_order": [
+        "slide"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "small",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "rich-text-0": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "columns_mobile": "2"
+      }
+    },
+    "collection_list_xKNmNw": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_7f4GJN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "aphrodisiacs-gummies"
+          }
+        },
+        "featured_collection_qBzVin": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "vapes"
+          }
+        },
+        "featured_collection_VJwJhW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "libido-enhancers"
+          }
+        },
+        "featured_collection_kPmrYa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "intimacy-pleasure"
+          }
+        },
+        "featured_collection_FAHpwH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "toys"
+          }
+        },
+        "featured_collection_zrmrz7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "apparel-accessories"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_7f4GJN",
+        "featured_collection_qBzVin",
+        "featured_collection_VJwJhW",
+        "featured_collection_kPmrYa",
+        "featured_collection_FAHpwH",
+        "featured_collection_zrmrz7"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_BKJtVj",
+    "slideshow",
+    "rich-text-0",
+    "main",
+    "collection_list_xKNmNw"
+  ]
+}

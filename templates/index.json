@@ -1,0 +1,1077 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_split_9F4UAW": {
+      "type": "hero_split",
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 600px) {span {font-size: 16px; font-family: \"Bricolage Grotesque\"; font-weight: 800; color: #881d3e; }}",
+        "@media (max-width: 520px) {h1 {font-size: 4.5rem; } .ai-split-section-content-template--20237742244089herosplit9f4uaw {padding-bottom: 0rem; }}"
+      ],
+      "name": "Split hero section",
+      "settings": {
+        "padding_top": 120,
+        "padding_bottom": 160,
+        "image_alignment": "center",
+        "background_effect": "fixed",
+        "use_gradient": true,
+        "background_color": "rgba(0,0,0,0)",
+        "grad_type": "linear",
+        "grad_angle": 135,
+        "radial_position": "center center",
+        "grad_color_1": "#ff4881",
+        "grad_stop_1": 40,
+        "grad_color_2": "#32c6ff",
+        "grad_stop_2": 75,
+        "enable_grad_color_3": true,
+        "grad_color_3": "#fffc32",
+        "grad_stop_3": 100,
+        "enable_grad_color_4": false,
+        "grad_color_4": "#32c6ff",
+        "grad_stop_4": 61,
+        "content_alignment": "left",
+        "heading": "Enhance Your Pleasure Naturally",
+        "heading_size": 80,
+        "heading_color": "#fdf8e1",
+        "subheading": "",
+        "subheading_size": 24,
+        "subheading_color": "#333333",
+        "description": "",
+        "description_size": 16,
+        "description_color": "#666666",
+        "show_right_image": true,
+        "right_image": "shopify://shop_images/Frame_81_1.webp",
+        "right_image_radius": 8,
+        "enable_float_animation": true,
+        "float_intensity": 15,
+        "float_duration": 4,
+        "show_categories": true,
+        "categories_alignment": "left",
+        "categories_per_row": "3",
+        "categories_per_row_mobile": "3",
+        "enable_category_shadow": true,
+        "category_aspect_ratio": "1/1",
+        "image_fit": "cover",
+        "enable_image_overflow": true,
+        "image_overflow_scale": 1.4,
+        "image_overflow_direction": "top",
+        "enable_category_1": true,
+        "category_1": "for-woman",
+        "category_1_image": "shopify://shop_images/for-her.webp",
+        "category_1_title": "{{ section.settings.category_1.title }}",
+        "show_category_1_title": true,
+        "enable_category_2": true,
+        "category_2": "for-men",
+        "category_2_image": "shopify://shop_images/for-him.webp",
+        "category_2_title": "{{ section.settings.category_2.title }}",
+        "show_category_2_title": true,
+        "enable_category_3": true,
+        "category_3": "bundles-kits",
+        "category_3_image": "shopify://shop_images/for-both.webp",
+        "category_3_title": "For Both",
+        "show_category_3_title": true,
+        "enable_category_4": false,
+        "category_4": "",
+        "category_4_title": "",
+        "show_category_4_title": true,
+        "category_bg_color": "#f8f8f8",
+        "category_bg_opacity": 25,
+        "category_hover_bg_color": "#a7e4b2",
+        "category_image_bg_color": "#ffd8d8",
+        "category_text_color": "#ff4881",
+        "category_hover_text_color": "#ff4881",
+        "category_border_color": "#e5e5e5",
+        "category_border_width": 1,
+        "category_border_radius": 20,
+        "category_image_radius": 16,
+        "enable_image_hover_rotate": true,
+        "image_hover_rotate_deg": 5,
+        "show_cta": false,
+        "cta_label": "See all",
+        "cta_url": "",
+        "cta_new_tab": false,
+        "cta_btn_padding": false,
+        "cta_aria_label": "",
+        "cta_alignment": "left"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_Q6aLWG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pre-black-friday-b2go.webp",
+            "image_overlay_opacity": 40,
+            "heading": "BUY 2 GET ONE FREE",
+            "heading_size": "hxxl",
+            "subheading": "IN ALL OUR PRODUCTS",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-da0d36b9-8bf8-497e-aff2-d33cbc2c95b6"
+          }
+        },
+        "slide_Vym7Uk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/drink-male.webp",
+            "image_overlay_opacity": 40,
+            "heading": "READY TO BOOST YOUR ENERGY?",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "BUY NOW",
+            "link": "shopify://pages/nuud-drink",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-da0d36b9-8bf8-497e-aff2-d33cbc2c95b6"
+          }
+        },
+        "slide_AjDUkg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/aphrodisiacs-gummies-nuud-sex-bites-green-apple.webp",
+            "image_overlay_opacity": 40,
+            "heading": "ENHANCE YOUR PLEASURE NATURALLY",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "BUY NOW",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-da0d36b9-8bf8-497e-aff2-d33cbc2c95b6"
+          }
+        },
+        "slide-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Drink-hero-banner.webp",
+            "image_overlay_opacity": 40,
+            "heading": "FUEL THE CONNECTION. MIX, DRINK, ENJOY",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "Buy now",
+            "link": "shopify://pages/nuud-drink",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-da0d36b9-8bf8-497e-aff2-d33cbc2c95b6"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Q6aLWG",
+        "slide_Vym7Uk",
+        "slide_AjDUkg",
+        "slide-0"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "ambient",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "spacer_wave_3GDCm9": {
+      "type": "spacer-wave",
+      "disabled": true,
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#fdf8e1",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "spacer_wave_DqYzMh": {
+      "type": "spacer-wave",
+      "disabled": true,
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#fdf8e1",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "multicolumn_ryg8tk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WFUCTQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/FreeReturns.svg",
+            "title": "FREE RETURNS",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_khWtyD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SecureCheckout.svg",
+            "title": "SECURE CHECKOUT",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EHP3wP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/FreeShipping.svg",
+            "title": "FREE SHIPPING OVER $25",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_WFUCTQ",
+        "column_khWtyD",
+        "column_EHP3wP"
+      ],
+      "custom_css": [
+        "@media (max-width: 990px) {.slider-buttons {display: none; } .multicolumn-card__info {padding: 0; } .jlm-view .jlm-track {gap: 40px; }}",
+        "@media (max-width: 520px) {h3 {font-size: 1.4rem; } .grid {justify-content: center; gap: 1.2rem; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "176072688853a6daa3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3a66b64_CyATaP": {
+          "type": "ai_gen_block_3a66b64",
+          "settings": {
+            "image": "shopify://shop_images/MadeInMiami_088739a9-13c5-431f-9dc3-ed44aa1416f7.svg",
+            "image_size": 150,
+            "rotation_speed": 8,
+            "alignment": "center",
+            "spacing_top": 40,
+            "spacing_bottom": 0,
+            "background_color": "rgba(0,0,0,0)"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3a66b64_CyATaP"
+      ],
+      "settings": {}
+    },
+    "collection_list_LqjAPb": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_CReX3a": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "nuud-drink-water"
+          }
+        },
+        "featured_collection_7JwkTj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "aphrodisiacs-gummies"
+          }
+        },
+        "featured_collection_frcqgC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "libido-enhancers"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_CReX3a",
+        "featured_collection_7JwkTj",
+        "featured_collection_frcqgC"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {justify-content: center;}",
+        "@media (max-width: 520px) {h2 {font-size: 3.5rem; text-align: center; } .title-wrapper-with-link {flex-direction: column; justify-content: center; align-items: center; }}"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Our Best Sellers",
+        "heading_size": "h0",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_rf8gR9": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_zLye9P": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bundles-kits"
+          }
+        },
+        "featured_collection_qegNyc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "libido-enhancers"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_zLye9P",
+        "featured_collection_qegNyc"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {justify-content: center;}",
+        "@media (max-width: 520px) {h2 {font-size: 3.5rem; }}"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Bundle and Save",
+        "heading_size": "h0",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured-collection-0": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "collection": "featured_items",
+        "products_to_show": 3,
+        "title": "Our Best Sellers",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection_9jdQUL": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "collection": "for-both",
+        "products_to_show": 2,
+        "title": "Bundle and Save",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 2,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_wKpAUi": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_M7PQTf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Enhance your play in bed",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_kpM7UC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Crafted for those who seek more than just pleasure. NUUD offers an immersive experience that elevates intimacy and connects you deeply with your desires. With NUUD, perfection isn't just a standard; it's a sensual journey we promise with every encounter.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_zwRLDR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore now",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_M7PQTf",
+        "text_kpM7UC",
+        "button_zwRLDR"
+      ],
+      "custom_css": [
+        ".image-with-text__media.allow-overflow {border-radius: 24px 0 0 24px;}",
+        ".image-with-text div {border-radius: 0 24px 24px 0;}",
+        "@media (max-width: 751px) {.hxxl {font-size: 3.5rem; } .button {width: 100%; } .subtitle {font-size: 1.4rem; } .image-with-text__content {padding: 3rem; } .image-with-text__media.allow-overflow {border-radius: 24px 24px 0 0; } .image-with-text div {border-radius: 0 0 24px 24px; } img {height: auto !important; max-width: 240px !important; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_pkguhppkguhppkgu.webp",
+        "enable_image_overflow": true,
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "ambient",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "bottom",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-4",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "featured_reviews_HKLXVV": {
+      "type": "featured-reviews",
+      "blocks": {
+        "image_7JMMk4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3_2.webp",
+            "alt": ""
+          }
+        },
+        "review_iTz3Dk": {
+          "type": "review",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>Tbh I didn’t expect much but WOW. Took one gummy about an hour before and felt way more “into it” than usual. Not crazy or fake-feeling, just… more awake lol. Def gonna keep these around.</p>",
+            "author": "",
+            "rating": 5
+          }
+        },
+        "image_ARxFwF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/woman-with-her-nuud-drink-lemon-and-watermelon.png",
+            "alt": ""
+          }
+        },
+        "review_aFGEtc": {
+          "type": "review",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>Ladies… this stuff WORKS. I’ve had low libido for a while and this gave me such a push. My body reacted faster and I felt more “there.” Highly recommend for date nights.</p>",
+            "author": "",
+            "rating": 5
+          }
+        },
+        "image_CLwKJC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_97.png",
+            "alt": ""
+          }
+        },
+        "review_4TzJmQ": {
+          "type": "review",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>It actually helps with sensitivity! Everything felt more electric and intense. My partner noticed the difference too lol.</p>",
+            "author": "",
+            "rating": 5
+          }
+        },
+        "image_GeUhqM": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Bites_I.jpg",
+            "alt": ""
+          }
+        },
+        "review_NyfgRc": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text": "<p>Took one sachet before a weekend getaway and omg… it made a HUGE difference. Tingling, warmth, and a lot more desire than usual. Tasted better than I expected too.</p>",
+            "author": "",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_7JMMk4",
+        "review_iTz3Dk",
+        "image_ARxFwF",
+        "review_aFGEtc",
+        "image_CLwKJC",
+        "review_4TzJmQ",
+        "image_GeUhqM",
+        "review_NyfgRc"
+      ],
+      "custom_css": [
+        "@media (max-width: 988px) {p {font-size: 1.2rem; line-height: 1.6rem; } h3 {font-size: 1.4rem; line-height: 2rem; } .reviews-template--20237742244089__featured_reviews_HKLXVV .card--review .card__inner {padding: 40px 16px; width: auto; }}"
+      ],
+      "name": "Review Carousel",
+      "settings": {
+        "heading": "YOU’RE MAKING US BLUSH",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "full_width": true,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "color_scheme": "",
+        "card_color_scheme": "scheme-4",
+        "show_stars": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "view_all_label": "Read more",
+        "view_all_link": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_Jz4JrK": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "collection_list_qyNwCB": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_pMdF8H": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "for-men"
+          }
+        },
+        "featured_collection_g6d3pf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "for-woman"
+          }
+        },
+        "featured_collection_9PNMpF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "for-both"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_pMdF8H",
+        "featured_collection_g6d3pf",
+        "featured_collection_9PNMpF"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {text-align: center;}",
+        "@media (max-width: 520px) {h2 {font-size: 3.5rem; }}"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Explore all of NUUD’s pleasure essentials",
+        "heading_size": "h0",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-3",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "spacer_wave_EJaPgt": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "rich_text_kUzfjd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wLjd9y": {
+          "type": "heading",
+          "settings": {
+            "heading": "The People Who Love Us",
+            "heading_size": "h0"
+          }
+        },
+        "text_wUtfMV": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wLjd9y",
+        "text_wUtfMV"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "spacer_wave_rcTxAc": {
+      "type": "spacer-wave",
+      "custom_css": [
+        "div {z-index: 0;}"
+      ],
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": false,
+        "show_bottom_wave": true,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 20,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 0
+      }
+    },
+    "blocks_PxaMWe": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3a66b64_9PcAUy": {
+          "type": "ai_gen_block_3a66b64",
+          "settings": {
+            "image": "shopify://shop_images/SpicyLove.png",
+            "image_size": 110,
+            "rotation_speed": 8,
+            "alignment": "center",
+            "spacing_top": 0,
+            "spacing_bottom": 0,
+            "background_color": "rgba(0,0,0,0)"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3a66b64_9PcAUy"
+      ],
+      "custom_css": [
+        "img {z-index: 2;}"
+      ],
+      "settings": {}
+    },
+    "collapsible_content_XimKmQ": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_x8yDWU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do NUUD Pleasures products enhance arousal?",
+            "icon": "heart",
+            "row_content": "<p>Our proprietary blend is meticulously designed with powerful natural aphrodisiacs to awaken desire.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Djifdg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are all NUUD products infused with hemp?",
+            "icon": "leaf",
+            "row_content": "<p>Our Libido Enhancers are crafted without hemp derivatives yet contain a potent mix of natural aphrodisiacs for those seeking pure stimulation.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_376xqi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does NUUD offer free shipping?",
+            "icon": "truck",
+            "row_content": "<p>Absolutely, we provide free shipping within the United States for all orders exceeding $19.50.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GmF3Qp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use products designed for the opposite gender?",
+            "icon": "silhouette",
+            "row_content": "<p>Certainly. While our formulas are specifically designed for each gender, they are universally effective and safe, allowing anyone to experience their aphrodisiac qualities.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zVhdy3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What can I expect from an intimate encounter with NUUD products?",
+            "icon": "fire",
+            "row_content": "<p>NUUD Pleasures products are designed to give you enhanced performance, a surge in libido, a profound connection with your own sensuality and your partner, and an unforgettable pleasure that deepens your intimacy.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_x8yDWU",
+        "collapsible_row_Djifdg",
+        "collapsible_row_376xqi",
+        "collapsible_row_GmF3Qp",
+        "collapsible_row_zVhdy3"
+      ],
+      "custom_css": [
+        "@media (max-width: 520px) {h2 {font-size: 3.5rem; } .grid {row-gap: 0; }}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-4",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image": "shopify://shop_images/Frame_81_1.webp",
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "contact_form_KY39eH": {
+      "type": "contact-form",
+      "custom_css": [
+        "h2 {text-align: center;}",
+        ".contact__button {display: flex; justify-content: center;}",
+        "@media (max-width: 520px) {h2 {font-size: 3.5rem; } button {width: 100%; }}"
+      ],
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "heading": "Contact Us",
+        "heading_size": "h0",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_9LAAwW": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "#ffd8d8",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 40,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 80,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "1760714949f5b1ef60": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_3xzNtW": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "#ffd8d8",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_3xzNtW"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "spacer_wave_VbLWRy": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "#ffd8d8",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 40,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": false,
+        "show_bottom_wave": true,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 20,
+        "wave_overlap_bottom": 80,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "featured_blog_JVxpKj": {
+      "type": "featured-blog",
+      "custom_css": [
+        ".title-wrapper--no-top-margin {justify-content: center;}",
+        "h3 {font-size: 2rem;}",
+        "@media (max-width: 520px) {h2 {font-size: 3.5rem; text-align: center; }}"
+      ],
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "news",
+        "post_limit": 3,
+        "heading": "Explore Our Latest Articles",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_XypNVd": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#881d3e",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 20,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    }
+  },
+  "order": [
+    "hero_split_9F4UAW",
+    "slideshow",
+    "spacer_wave_3GDCm9",
+    "spacer_wave_DqYzMh",
+    "multicolumn_ryg8tk",
+    "176072688853a6daa3",
+    "collection_list_LqjAPb",
+    "collection_list_rf8gR9",
+    "featured-collection-0",
+    "featured_collection_9jdQUL",
+    "image_with_text_wKpAUi",
+    "featured_reviews_HKLXVV",
+    "spacer_wave_Jz4JrK",
+    "collection_list_qyNwCB",
+    "spacer_wave_EJaPgt",
+    "rich_text_kUzfjd",
+    "spacer_wave_rcTxAc",
+    "blocks_PxaMWe",
+    "collapsible_content_XimKmQ",
+    "contact_form_KY39eH",
+    "spacer_wave_9LAAwW",
+    "1760714949f5b1ef60",
+    "spacer_wave_VbLWRy",
+    "featured_blog_JVxpKj",
+    "spacer_wave_XypNVd"
+  ]
+}

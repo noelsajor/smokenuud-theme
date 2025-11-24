@@ -1,0 +1,750 @@
+{% comment %}
+  Review Carousel — slideshow behaviors matching Dawn's default slideshow
+  - Auto rotate with proper looping back to start
+  - Pagination: none / dots / counter / numbers
+  - Preserves columns desktop/mobile, enable desktop slider, full width, heading controls,
+    color schemes, image ratio/shape, and "View all" button.
+{% endcomment %}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media (min-width: 750px){
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Grid + slider shell */
+  .reviews-{{ section.id }} .grid { list-style: none; margin: 0; padding: 0; }
+  .reviews-{{ section.id }} .grid__item { height: 100%; }
+
+  /* Desktop grid */
+  @media (min-width: 990px){
+    .reviews-{{ section.id }} .grid--cols {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0,1fr));
+    }
+    /* Flex when desktop slider enabled */
+    .reviews-{{ section.id }} .slider--desktop.grid--cols {
+      display: flex;
+      gap: 8px;
+      overflow: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .reviews-{{ section.id }} .slider--desktop.grid--cols .grid__item {
+      min-width: calc(100% / {{ section.settings.columns_desktop }}); /* width per slide */
+      scroll-snap-align: start;
+    }
+    .reviews-{{ section.id }} .slider--desktop .slider__slide { padding: 0; }
+  }
+
+  /* Mobile grid */
+  @media (max-width: 989.98px){
+    .reviews-{{ section.id }} .grid--cols {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
+    }
+  }
+
+  /* Tablet/mobile gutters like Dawn */
+  .reviews-{{ section.id }} .slider--tablet.grid--peek { scroll-padding-left: 1.6rem; }
+  .reviews-{{ section.id }} .slider__slide { padding: 0 .8rem; }
+
+  /* Cards */
+  .reviews-{{ section.id }} .card {
+    border-radius: 24px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--color-background));
+  }
+
+  /* Aspect ratio */
+  .reviews-{{ section.id }} .card.has-aspect { aspect-ratio: var(--rc-{{ section.id }}-ratio); }
+  {% liquid
+    assign ratio = 'auto'
+    if section.settings.image_ratio == 'portrait'
+      assign ratio = '3 / 4'
+    elsif section.settings.image_ratio == 'square'
+      assign ratio = '1 / 1'
+    endif
+  %}
+  :root { --rc-{{ section.id }}-ratio: {{ ratio }}; }
+
+  .reviews-{{ section.id }} .card--image .media { position:relative; width:100%; height:100%; }
+  .reviews-{{ section.id }} .card--image .media img { width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* Review visual styles */
+  .reviews-{{ section.id }} .card--review { background: rgb(var(--color-background)); color: rgb(var(--color-foreground)); }
+  .reviews-{{ section.id }} .card--review h3 { margin: 0 0 .25rem; font-size: 1.6rem; line-height: 1.2; }
+  .reviews-{{ section.id }} .card--review .subhead { margin: 0 0 1.25rem; font-size: 1.4rem; line-height: 1.25; opacity: .9; font-weight: 700; }
+  .reviews-{{ section.id }} .card--review .content { font-size: 1.5rem; line-height: 1.6; margin-bottom: 1rem; }
+  .reviews-{{ section.id }} .card--review .author { margin-top: .75rem; font-weight: 700; font-size: 1.4rem; }
+
+  /* Equal-height trick: let aspect-ratio control OUTER card, put padding INSIDE */
+  .reviews-{{ section.id }} .card--review.has-aspect { padding: 0; }
+  .reviews-{{ section.id }} .card--review .card__inner{
+    height: 100%;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  @media (min-width: 990px){
+    .reviews-{{ section.id }} .card--review .card__inner{ padding: 40px 36px; }
+  }
+
+  /* ——— Rating (Stars) ——— */
+  .reviews-{{ section.id }} .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+    margin-bottom: .9rem;
+  }
+  .reviews-{{ section.id }} .rating .stars {
+    display: inline-flex;
+    gap: .25rem;
+    line-height: 0;
+  }
+  .reviews-{{ section.id }} .rating .star {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    opacity: .4;                /* unfilled */
+  }
+  .reviews-{{ section.id }} .rating .star.is-filled {
+    fill: currentColor;         /* filled */
+    opacity: 1;
+  }
+
+  /* ——— MOBILE POLISH (< 990px) ——— */
+  @media (max-width: 989.98px){
+    .reviews-{{ section.id }} .grid--cols{
+        gap: 16px;
+        grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0,1fr));
+    }
+    .reviews-{{ section.id }} .card{
+        border-radius: 18px;
+        overflow: hidden;
+    }
+    .reviews-{{ section.id }} .card--image .media img{
+        display: block; width: 100%; height: 100%; object-fit: cover;
+        -webkit-mask-image: none; mask-image: none;
+        border-radius: 18px;
+    }
+    .reviews-{{ section.id }} .card--review{
+        border-radius: 18px;
+        text-align: center;
+        justify-content: center;
+    }
+    .color-{{ section.settings.card_color_scheme }} .reviews-{{ section.id }} .card--review{
+        background: rgb(var(--color-background));
+        color: rgb(var(--color-foreground));
+    }
+    .reviews-{{ section.id }} .slider__slide{ padding: 0 .6rem; }
+  }
+
+  @media (min-width: 990px){
+    .reviews-{{ section.id }} .card{ border-radius: 24px; }
+  }
+
+  /* Let review tiles size to their content on mobile when desired */
+  @media (max-width: 989.98px){
+    .reviews-{{ section.id }} .card--review.has-aspect{ aspect-ratio: auto; }
+    .reviews-{{ section.id }} .grid__item,
+    .reviews-{{ section.id }} .slider__slide{ height: auto; }
+    .reviews-{{ section.id }} .card--review .card__inner{ height: auto; }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign blocks_count = section.blocks.size
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign columns_desktop_int = section.settings.columns_desktop | plus: 0
+
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and blocks_count > columns_mobile_int and columns_mobile_int > 1
+    assign show_mobile_slider = true
+  endif
+
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider and blocks_count > columns_desktop_int
+    assign show_desktop_slider = true
+  endif
+
+  assign force_slider_for_autoplay = false
+  if section.settings.auto_rotate and blocks_count > 1 and columns_mobile_int > 1
+    assign force_slider_for_autoplay = true
+  endif
+
+  if force_slider_for_autoplay
+    assign show_mobile_slider = true
+    if section.settings.enable_desktop_slider
+      assign show_desktop_slider = true
+    endif
+  endif
+
+  assign is_slider_mode = false
+  if show_desktop_slider or show_mobile_slider
+    assign is_slider_mode = true
+  endif
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="section-{{ section.id }}-padding{% if section.settings.full_width %} slider-component-full-width{% endif %}">
+    {%- if section.settings.heading != blank -%}
+      <div class="title-wrapper page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+        <div style="text-align: {{ section.settings.heading_alignment }}; margin-bottom: 2rem;">
+          <h2 class="inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <slideshow-component
+      class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}"
+      role="region"
+      aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
+      aria-label="{{ section.settings.heading | escape }}"
+    >
+      {%- if section.settings.auto_rotate and blocks_count > 1 -%}
+        <div class="slideshow__controls slideshow__controls--top slider-buttons{% if show_mobile_slider %} slideshow__controls--border-radius-mobile{% endif %}">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+          </button>
+
+          <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
+            {%- if section.settings.slider_visual == 'counter' -%}
+              <span class="slider-counter--current">1</span>
+              <span aria-hidden="true"> / </span>
+              <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+              <span class="slider-counter--total">{{ blocks_count }}</span>
+            {%- else -%}
+              <div class="slideshow__control-wrapper">
+                {%- for block in section.blocks -%}
+                  <button
+                    class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
+                    aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                    aria-controls="Slider-{{ section.id }}"
+                  >
+                    {%- if section.settings.slider_visual == 'numbers' -%}
+                      {{ forloop.index }}
+                    {%- else -%}
+                      <span class="dot"></span>
+                    {%- endif -%}
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+          </button>
+
+          <button
+            type="button"
+            class="slideshow__autoplay slider-button"
+            aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
+          >
+            <span class="svg-wrapper">{{ 'icon-pause.svg' | inline_asset_content }}</span>
+            <span class="svg-wrapper">{{ 'icon-play.svg'  | inline_asset_content }}</span>
+          </button>
+        </div>
+      {%- endif -%}
+
+      <div
+        class="reviews-{{ section.id }} slideshow grid grid--cols slider slider--everywhere{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}"
+        id="Slider-{{ section.id }}"
+        aria-live="polite"
+        aria-atomic="true"
+        data-autoplay="{{ section.settings.auto_rotate }}"
+        data-speed="{{ section.settings.change_slides_speed }}"
+      >
+        {%- for block in section.blocks -%}
+          <div
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class="grid__item slider__slide slideshow__slide"
+            {{ block.shopify_attributes }}
+            role="group"
+            aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
+            aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+            tabindex="-1"
+          >
+            {% if block.type == 'image' %}
+              <article class="card card--image {% if section.settings.image_ratio != 'adapt' %}has-aspect{% endif %}">
+                <div class="media image-shape--{{ section.settings.image_shape }}">
+                  {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.alt | escape }}" loading="lazy">
+                  {% else %}
+                    <div style="width:100%;height:100%;background:rgba(0,0,0,.05)"></div>
+                  {% endif %}
+                </div>
+              </article>
+            {% elsif block.type == 'review' %}
+              <article class="card card--review color-{{ section.settings.card_color_scheme }} {% if section.settings.image_ratio != 'adapt' %}has-aspect{% endif %}">
+                <div class="card__inner">
+                  {% assign rating = block.settings.rating | default: 5 %}
+                  {% if section.settings.show_stars and rating %}
+                    <div class="rating" role="img" aria-label="{{ rating }} {{ 'general.accessibility.of' | t | default: 'of' }} 5">
+                      <span class="visually-hidden">{{ rating }} out of 5 stars</span>
+                      <span class="stars" aria-hidden="true">
+                        {%- for i in (1..5) -%}
+                          <svg class="star {% if i <= rating %}is-filled{% endif %}" viewBox="0 0 24 24" width="18" height="18" focusable="false" aria-hidden="true">
+                            <path d="M12 2.75l2.89 5.86 6.47.94-4.68 4.56 1.1 6.44L12 17.98l-5.78 3.04 1.1-6.44L2.64 9.55l6.47-.94L12 2.75z"/>
+                          </svg>
+                        {%- endfor -%}
+                      </span>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.title != blank %}<h3>{{ block.settings.title | escape }}</h3>{% endif %}
+                  {% if block.settings.subtitle != blank %}<p class="subhead">{{ block.settings.subtitle | escape }}</p>{% endif %}
+                  {% if block.settings.text != blank %}<div class="content rte">{{ block.settings.text }}</div>{% endif %}
+                  {% if block.settings.author != blank %}<p class="author">— {{ block.settings.author | escape }}</p>{% endif %}
+                </div>
+              </article>
+            {% endif %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if blocks_count > 1 and section.settings.auto_rotate == false -%}
+        <div class="slideshow__controls slider-buttons{% if show_mobile_slider %} slideshow__controls--border-radius-mobile{% endif %}">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+          </button>
+
+          <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
+            {%- if section.settings.slider_visual == 'counter' -%}
+              <span class="slider-counter--current">1</span>
+              <span aria-hidden="true"> / </span>
+              <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+              <span class="slider-counter--total">{{ blocks_count }}</span>
+            {%- else -%}
+              <div class="slideshow__control-wrapper">
+                {%- for block in section.blocks -%}
+                  <button
+                    class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
+                    aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                    aria-controls="Slider-{{ section.id }}"
+                  >
+                    {%- if section.settings.slider_visual == 'numbers' -%}
+                      {{ forloop.index }}
+                    {%- else -%}
+                      <span class="dot"></span>
+                    {%- endif -%}
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+          </button>
+        </div>
+      {%- endif -%}
+    </slideshow-component>
+
+    {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
+      <div class="center page-width" style="margin-top: 20px;">
+        <a
+          href="{{ section.settings.view_all_link }}"
+          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+        >
+          {{ section.settings.view_all_label }}
+        </a>
+      </div>
+    {%- endif -%}
+
+    {% if section.settings.image_shape == 'arch' %}
+      {{ 'mask-arch.svg' | inline_asset_content }}
+    {% endif %}
+  </div>
+</div>
+
+{% if section.settings.auto_rotate %}
+<script>
+(function() {
+  function initReviewCarouselAutoplay() {
+    const slideshowEl = document.querySelector('#Slider-{{ section.id }}');
+    if (!slideshowEl) return;
+    
+    const slideshowComponent = slideshowEl.closest('slideshow-component');
+    if (!slideshowComponent) return;
+
+    const slides = slideshowEl.querySelectorAll('.slideshow__slide');
+    const totalSlides = slides.length;
+    const isMobile = window.innerWidth < 990;
+    const columns = isMobile ? {{ section.settings.columns_mobile }} : {{ section.settings.columns_desktop }};
+    const speed = {{ section.settings.change_slides_speed }} * 1000;
+
+    let currentIndex = 0;
+    let autoplayInterval = null;
+    let isPlaying = true;
+
+    // Function to scroll to specific slide index
+    function scrollToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = 0;
+
+      const targetSlide = slides[index];
+      if (!targetSlide) return;
+
+      const slideRect = targetSlide.getBoundingClientRect();
+      const sliderRect = slideshowEl.getBoundingClientRect();
+      const scrollAmount = slideshowEl.scrollLeft + (slideRect.left - sliderRect.left);
+
+      slideshowEl.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+
+      currentIndex = index;
+
+      // Update counter
+      const counter = slideshowComponent.querySelector('.slider-counter--current');
+      if (counter) {
+        counter.textContent = index + 1;
+      }
+
+      // Update dots
+      const dots = slideshowComponent.querySelectorAll('.slider-counter__link');
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add('slider-counter__link--active');
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.classList.remove('slider-counter__link--active');
+          dot.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    // Advance to next set of slides
+    function advance() {
+      if (!isPlaying) return;
+
+      let nextIndex = currentIndex + columns;
+      
+      // If we've reached or passed the end, loop back to start
+      if (nextIndex >= totalSlides) {
+        nextIndex = 0;
+      }
+
+      scrollToSlide(nextIndex);
+    }
+
+    // Start autoplay
+    function startAutoplay() {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(advance, speed);
+      isPlaying = true;
+    }
+
+    // Stop autoplay
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+      isPlaying = false;
+    }
+
+    // Handle play/pause button
+    const playPauseBtn = slideshowComponent.querySelector('.slideshow__autoplay');
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (isPlaying) {
+          stopAutoplay();
+          this.classList.add('slideshow__autoplay--paused');
+        } else {
+          startAutoplay();
+          this.classList.remove('slideshow__autoplay--paused');
+        }
+      });
+    }
+
+    // Handle manual navigation
+    const nextBtn = slideshowComponent.querySelector('.slider-button--next');
+    const prevBtn = slideshowComponent.querySelector('.slider-button--prev');
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        let nextIndex = currentIndex + columns;
+        if (nextIndex >= totalSlides) nextIndex = 0;
+        scrollToSlide(nextIndex);
+
+        // Restart autoplay timer
+        if (isPlaying) {
+          stopAutoplay();
+          startAutoplay();
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        let prevIndex = currentIndex - columns;
+        if (prevIndex < 0) {
+          prevIndex = Math.max(0, totalSlides - columns);
+        }
+        scrollToSlide(prevIndex);
+
+        // Restart autoplay timer
+        if (isPlaying) {
+          stopAutoplay();
+          startAutoplay();
+        }
+      });
+    }
+
+    // Handle dot navigation
+    const dotButtons = slideshowComponent.querySelectorAll('.slider-counter__link');
+    dotButtons.forEach((btn, index) => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        scrollToSlide(index);
+
+        // Restart autoplay timer
+        if (isPlaying) {
+          stopAutoplay();
+          startAutoplay();
+        }
+      });
+    });
+
+    // Pause on hover
+    slideshowComponent.addEventListener('mouseenter', function() {
+      if (isPlaying) stopAutoplay();
+    });
+
+    slideshowComponent.addEventListener('mouseleave', function() {
+      const isPaused = playPauseBtn && playPauseBtn.classList.contains('slideshow__autoplay--paused');
+      if (!isPaused) {
+        startAutoplay();
+      }
+    });
+
+    // Start autoplay
+    startAutoplay();
+  }
+
+  // Initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReviewCarouselAutoplay);
+  } else {
+    initReviewCarouselAutoplay();
+  }
+})();
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Review Carousel",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "YOU'RE MAKING US BLUSH" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" },
+        { "value": "hxl", "label": "Huge" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
+    { "type": "range", "id": "columns_desktop", "min": 1, "max": 6, "step": 1, "default": 3, "label": "Columns (desktop)" },
+    { "type": "checkbox", "id": "enable_desktop_slider", "label": "Enable desktop slider", "default": false },
+
+    { "type": "header", "content": "Mobile layout" },
+    { "type": "select", "id": "columns_mobile", "label": "Columns (mobile)", "default": "1", "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ] },
+    { "type": "checkbox", "id": "swipe_on_mobile", "label": "Carousel on mobile (swipe)", "default": true },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Section color scheme", "default": "background-1" },
+    { "type": "color_scheme", "id": "card_color_scheme", "label": "Review cards color scheme", "default": "background-2" },
+
+    { "type": "header", "content": "Ratings" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show star rating", "default": true },
+
+    { "type": "header", "content": "Card media" },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "arch", "label": "Arch" },
+        { "value": "blob", "label": "Blob" },
+        { "value": "chevronleft", "label": "Chevron Left" },
+        { "value": "chevronright", "label": "Chevron Right" },
+        { "value": "diamond", "label": "Diamond" },
+        { "value": "parallelogram", "label": "Parallelogram" },
+        { "value": "round", "label": "Round" }
+      ],
+      "default": "default"
+    },
+
+    { "type": "header", "content": "Pagination & autoplay" },
+    {
+      "type": "select",
+      "id": "slider_visual",
+      "label": "Pagination",
+      "options": [
+        { "value": "dots", "label": "Dots" },
+        { "value": "counter", "label": "Counter" },
+        { "value": "numbers", "label": "Numbers" }
+      ],
+      "default": "dots"
+    },
+    { "type": "checkbox", "id": "auto_rotate", "label": "Auto rotate slides", "default": false },
+    { "type": "range", "id": "change_slides_speed", "min": 3, "max": 9, "step": 2, "unit": "s", "label": "Change slides every", "default": 5 },
+
+    { "type": "header", "content": "View all" },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show \"View all\" button", "default": false },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "\"View all\" style",
+      "options": [
+        { "value": "link", "label": "Link" },
+        { "value": "outline", "label": "Outline button" },
+        { "value": "solid", "label": "Solid button" }
+      ],
+      "default": "solid"
+    },
+    { "type": "text", "id": "view_all_label", "label": "\"View all\" label", "default": "Read more" },
+    { "type": "url", "id": "view_all_link", "label": "\"View all\" link" },
+
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Insomnia" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Relief!" },
+        { "type": "richtext", "id": "text", "label": "Review", "default": "<p>I've been suffering on and off with insomnia for some time now. I was reluctant to try these but I had tried everything else and was desperate. I'm so glad I did! I slept for 10 hours! Highly recommend!</p>" },
+        { "type": "text", "id": "author", "label": "Author", "default": "Lauren B." },
+        { "type": "range", "id": "rating", "label": "Star rating (1–5)", "min": 1, "max": 5, "step": 1, "default": 5 }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Review Carousel",
+      "blocks": [
+        { "type": "image" },
+        { "type": "review", "settings": { "title": "Insomnia", "subtitle": "Relief!", "rating": 5 } },
+        { "type": "image" },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Natural Relief Is A Gummy Away",
+            "subtitle": "",
+            "text": "<p>Never in my wildest dreams would I think that this would alleviate my anxiety and do it so quickly. I prefer to do things naturally and was so glad to find these!</p>",
+            "author": "Elizabeth F.",
+            "rating": 5
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

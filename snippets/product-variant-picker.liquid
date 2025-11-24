@@ -1,0 +1,255 @@
+{% comment %}
+  Renders product variant-picker with bulk discount under quantity pills.
+{% endcomment %}
+{%- unless product.has_only_default_variant -%}
+  <variant-selects
+    id="variant-selects-{{ section.id }}"
+    data-section="{{ section.id }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- for option in product.options_with_values -%}
+      {%- liquid
+        assign swatch_count = option.values | map: 'swatch' | compact | size
+        assign picker_type = block.settings.picker_type
+
+        if swatch_count > 0 and block.settings.swatch_shape != 'none'
+          if block.settings.picker_type == 'dropdown'
+            assign picker_type = 'swatch_dropdown'
+          else
+            assign picker_type = 'swatch'
+          endif
+        endif
+      -%}
+
+      {%- if picker_type == 'swatch' -%}
+        <fieldset class="js product-form__input product-form__input--swatch" data-option-index="{{ forloop.index0 }}" data-option-name="{{ option.name | strip }}">
+          <legend class="form__label">
+            {{ option.name }}:
+            <span data-selected-value>{{- option.selected_value -}}</span>
+          </legend>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+
+      {%- elsif picker_type == 'button' -%}
+        <!-- Pills (buttons) -->
+        <fieldset class="js product-form__input product-form__input--pill" data-option-index="{{ forloop.index0 }}" data-option-name="{{ option.name | strip }}">
+          <legend class="form__label">{{ option.name }}</legend>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+
+      {%- else -%}
+        <div class="product-form__input product-form__input--dropdown" data-option-index="{{ forloop.index0 }}" data-option-name="{{ option.name | strip }}">
+          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+          <div class="select">
+            {%- if picker_type == 'swatch_dropdown' -%}
+              <span data-selected-value class="dropdown-swatch">
+                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+              </span>
+            {%- endif -%}
+            <select
+              id="Option-{{ section.id }}-{{ forloop.index0 }}"
+              class="select__select"
+              name="options[{{ option.name | escape }}]"
+              form="{{ product_form_id }}"
+            >
+              {% render 'product-variant-options',
+                product: product,
+                option: option,
+                block: block,
+                picker_type: picker_type
+              %}
+            </select>
+            <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    <script type="application/json" data-selected-variant>
+      {{ product.selected_or_first_available_variant | json }}
+    </script>
+
+    <!-- Full product JSON so JS can map option combos -> variants -->
+    <script type="application/json" data-product-json-{{ section.id }}>
+      {{ product | json }}
+    </script>
+
+    <style>
+      /* Layout for the outside discount line */
+      .product-form__input--pill { overflow: visible; }
+      .product-form__input--pill label{
+        position: relative;
+        overflow: visible;
+        margin-bottom: 1.2rem; /* space for the line below */
+      }
+      .product-form__input--pill label .pill-discount{
+        position: absolute;
+        left: 0; right: 0;
+        top: calc(100% + 6px);
+        text-align: center;
+        z-index: 3;
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.2;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+
+      /* --- FIX: lock the color so it never turns white on :checked --- */
+      /* Define a dedicated discount color variable (override globally if you want) */
+      :root { --discount-color: #881d3e; } /* your brand purple (fallback) */
+
+      /* Force the color regardless of pill state */
+      .product-form__input--pill label .pill-discount{
+        color: var(--discount-color) !important;
+        opacity: .95;
+      }
+      .product-form__input--pill input:checked + label .pill-discount{
+        color: var(--discount-color) !important;
+        opacity: .95;
+      }
+
+      /* Hide only when empty (baseline pill) */
+      .product-form__input--pill label .pill-discount:empty { display: none; }
+    </style>
+
+
+
+    <script>
+      (function(){
+        const root = document.getElementById('variant-selects-{{ section.id }}');
+        if(!root) return;
+
+        const productEl = root.querySelector('[data-product-json-{{ section.id }}]');
+        if(!productEl) return;
+        let productData;
+        try { productData = JSON.parse(productEl.textContent); } catch(e){ return; }
+
+        const money = (cents) => typeof cents === 'number' ? cents : parseInt(cents || 0, 10);
+
+        const optionFieldsets = Array.from(root.querySelectorAll('[data-option-index]'));
+        const getCurrentSelections = () => optionFieldsets.map(fs => {
+          const checked = fs.querySelector('input[type="radio"]:checked');
+          if (checked) return checked.value;
+          const sel = fs.querySelector('select');
+          if (sel) return sel.value;
+          const txt = fs.querySelector('[data-selected-value]');
+          return txt ? txt.textContent.trim() : '';
+        });
+
+        const isQuantityLike = (name) => {
+          const n = (name || '').toLowerCase();
+          return /qty|quantity|pack|packs|bundle|count|ct|units?/.test(n);
+        };
+        const parseQty = (label) => {
+          const m = String(label || '').match(/(\d+)/);
+          return m ? parseInt(m[1], 10) : null;
+        };
+
+        // Find the quantity-like pill fieldset
+        const pillSets = Array.from(root.querySelectorAll('.product-form__input--pill[data-option-index]'));
+        const qtySet = pillSets.find(fs => isQuantityLike(fs.getAttribute('data-option-name')));
+        if(!qtySet) return;
+
+        const qtyIndex = parseInt(qtySet.getAttribute('data-option-index'), 10);
+
+        // Create discount spans INSIDE labels (no layout shift)
+        const labels = Array.from(qtySet.querySelectorAll('label'));
+        labels.forEach(label => {
+          if (label.querySelector('.pill-discount')) return;
+          const discount = document.createElement('span');
+          discount.className = 'pill-discount';
+          discount.textContent = ''; // filled later
+          discount.setAttribute('data-has-discount', 'false');
+          label.appendChild(discount); // <- inside label
+        });
+
+        // Build lookup: options array -> variant
+        const keyOf = (opts) => opts.map(v => String(v)).join('|||');
+        const variantMap = new Map();
+        (productData.variants || []).forEach(v => {
+          const optVals = [v.option1, v.option2, v.option3].filter((_, i) => i < productData.options.length);
+          variantMap.set(keyOf(optVals), v);
+        });
+
+        const computeAndRender = () => {
+          const selections = getCurrentSelections();
+
+          // Collect qty options from label texts (exclude the discount text)
+          const qtyPairs = labels.map(l => {
+              const baseTxt = (l.childNodes[0] && l.childNodes[0].nodeType === 3)
+                ? l.childNodes[0].textContent
+                : l.textContent;
+              return { el: l, txt: String(baseTxt).trim(), qty: parseQty(baseTxt) };
+            })
+            .filter(p => p.qty && p.qty > 0)
+            .sort((a,b) => a.qty - b.qty);
+
+          if (qtyPairs.length === 0) return;
+
+          const baseline = qtyPairs.find(p => p.qty === 1) || qtyPairs[0];
+          const baselineOptions = selections.slice();
+          baselineOptions[qtyIndex] = baseline.txt;
+
+          const baselineVariant = variantMap.get(keyOf(baselineOptions));
+          if (!baselineVariant) return;
+
+          const baselineUnitPrice = money(baselineVariant.price) / baseline.qty;
+
+          // For each pill label, compute discount vs. baseline*qty
+          qtyPairs.forEach(({ el, txt, qty }) => {
+            const discEl = el.querySelector('.pill-discount');
+            if (!discEl) return;
+
+            const opts = selections.slice();
+            opts[qtyIndex] = txt;
+
+            // Find the variant for this quantity
+            const v = variantMap.get(keyOf(opts));
+
+            // Hide % only for the baseline (first pill)
+            if (qty === baseline.qty || txt === baseline.txt) {
+              discEl.textContent = ''; // baseline shows nothing
+              discEl.setAttribute('data-has-discount', 'false');
+              return;
+            }
+
+            // If variant not found, default to 0%
+            if (!v) {
+              discEl.textContent = `Save 0%`;
+              discEl.setAttribute('data-has-discount', 'false');
+              return;
+            }
+
+            const actual = money(v.price);
+            const hypot = Math.round(baselineUnitPrice * qty);
+            const raw = hypot > 0 ? (hypot - actual) / hypot : 0;
+            const pct = Math.max(0, Math.round(raw * 100));
+
+            // Always display the percentage, even if the pill is selected
+            discEl.textContent = `Save ${pct}%`;
+            discEl.setAttribute('data-has-discount', pct > 0 ? 'true' : 'false');
+          });
+        };
+
+        computeAndRender();
+        root.addEventListener('change', (e) => {
+          if (e.target && (e.target.matches('input[type="radio"]') || e.target.matches('select'))) {
+            computeAndRender();
+          }
+        });
+      })();
+    </script>
+  </variant-selects>
+{%- endunless -%}

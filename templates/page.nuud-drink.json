@@ -1,0 +1,1394 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "hero_split_7dBXWr": {
+      "type": "hero_split",
+      "custom_css": [
+        "@media (max-width: 600px) {span {font-size: 16px; font-family: \"Bricolage Grotesque\"; font-weight: 800; color: #881d3e; }}"
+      ],
+      "name": "Split hero section",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "image_alignment": "center",
+        "background_effect": "none",
+        "use_gradient": true,
+        "background_color": "#ff4881",
+        "grad_type": "linear",
+        "grad_angle": 125,
+        "radial_position": "bottom right",
+        "grad_color_1": "#ff4881",
+        "grad_stop_1": 38,
+        "grad_color_2": "#ffa7c3",
+        "grad_stop_2": 70,
+        "enable_grad_color_3": false,
+        "grad_color_3": "#fcb69f",
+        "grad_stop_3": 75,
+        "enable_grad_color_4": false,
+        "grad_color_4": "#a1c4fd",
+        "grad_stop_4": 100,
+        "content_alignment": "left",
+        "heading": "Natural sexual performance supplements that actually work",
+        "heading_size": 72,
+        "heading_color": "#ffffff",
+        "subheading": "",
+        "subheading_size": 24,
+        "subheading_color": "#333333",
+        "description": "Boost your intimate stamina and energy with ourfast-acting, natural performance booster powder. Discreet, effective, and scientifically formulated",
+        "description_size": 18,
+        "description_color": "#f8f8f8",
+        "show_right_image": true,
+        "right_image": "shopify://shop_images/drink_hero_img.webp",
+        "right_image_radius": 8,
+        "enable_float_animation": true,
+        "float_intensity": 15,
+        "float_duration": 4,
+        "show_categories": false,
+        "categories_alignment": "left",
+        "categories_per_row": "2",
+        "categories_per_row_mobile": "3",
+        "enable_category_shadow": true,
+        "category_aspect_ratio": "4/3",
+        "image_fit": "cover",
+        "enable_image_overflow": false,
+        "image_overflow_scale": 1.3,
+        "image_overflow_direction": "center",
+        "enable_category_1": true,
+        "category_1": "",
+        "category_1_title": "",
+        "show_category_1_title": true,
+        "enable_category_2": true,
+        "category_2": "",
+        "category_2_title": "",
+        "show_category_2_title": true,
+        "enable_category_3": false,
+        "category_3": "",
+        "category_3_title": "",
+        "show_category_3_title": true,
+        "enable_category_4": false,
+        "category_4": "",
+        "category_4_title": "",
+        "show_category_4_title": true,
+        "category_bg_color": "#f8f8f8",
+        "category_bg_opacity": 100,
+        "category_hover_bg_color": "#e8e8e8",
+        "category_image_bg_color": "#f0f0f0",
+        "category_text_color": "#000000",
+        "category_hover_text_color": "#000000",
+        "category_border_color": "#e5e5e5",
+        "category_border_width": 1,
+        "category_border_radius": 8,
+        "category_image_radius": 4,
+        "enable_image_hover_rotate": true,
+        "image_hover_rotate_deg": 3,
+        "show_cta": false,
+        "cta_label": "See all",
+        "cta_url": "",
+        "cta_new_tab": false,
+        "cta_btn_padding": false,
+        "cta_aria_label": "",
+        "cta_alignment": "left"
+      }
+    },
+    "spacer_wave_LgE9W6": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#a7e4b2",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "multicolumn_pzEVmi": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_MMENUj": {
+          "type": "column",
+          "settings": {
+            "title": "100% Natural",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JgzPQG": {
+          "type": "column",
+          "settings": {
+            "title": "Fast-Acting Formula",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QMpiBN": {
+          "type": "column",
+          "settings": {
+            "title": "Lab Tested",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_MMENUj",
+        "column_JgzPQG",
+        "column_QMpiBN"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {justify-content: center;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h0",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 8
+      }
+    },
+    "spacer_wave_8RfNTh": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": false,
+        "show_bottom_wave": true,
+        "wave_color": "#a7e4b2",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "multicolumn_ymNfGG": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_fkNpXJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/natural.webp",
+            "title": "100% Natural",
+            "text": "<p>Made with premium natural ingredients, no harmful chemicals or artificial flavors.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hQzc4p": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/discrete.webp",
+            "title": "Completely Discreet",
+            "text": "<p>Private packaging and billing. Your personal wellness journey stays confidential.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_a8MXYW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/quick.webp",
+            "title": "Quick Results",
+            "text": "<p>Feel the difference within 30-60 minutes. Fast acting energy, vigor, and overall health boost.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_fkNpXJ",
+        "column_hQzc4p",
+        "column_a8MXYW"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {justify-content: center;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Why Drink NUUD Water?",
+        "heading_size": "h0",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "featured_product_embed_6U47gk": {
+      "type": "featured-product-embed",
+      "blocks": {
+        "title_dRFBNW": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_8mCFVM": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "text_X8aMh3": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.title }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_CNEn6b": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_iMTEex": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_AwBBb7": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_LaTQDy": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "title_dRFBNW",
+        "text_8mCFVM",
+        "text_X8aMh3",
+        "price_CNEn6b",
+        "variant_picker_iMTEex",
+        "buy_buttons_AwBBb7",
+        "text_LaTQDy"
+      ],
+      "custom_css": [
+        ".subtitle {font-size: 3rem; font-family: var(--font-heading-family); font-style: var(--font-heading-style); font-weight: var(--font-heading-weight); letter-spacing: calc(var(--font-heading-scale) * 0.06rem); color: rgb(var(--color-foreground)); line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale))); word-break: break-word;}"
+      ],
+      "name": "Featured product (embed)",
+      "settings": {
+        "product": "nuud-drink-for-him",
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "featured_product_embed_P9fGQ8": {
+      "type": "featured-product-embed",
+      "blocks": {
+        "title_67gMNk": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_aTVQGc": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "text_XkgFzm": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.title }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_C386GM": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_6N8yHf": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_4re4xH": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_Tn6LQz": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "title_67gMNk",
+        "text_aTVQGc",
+        "text_XkgFzm",
+        "price_C386GM",
+        "variant_picker_6N8yHf",
+        "buy_buttons_4re4xH",
+        "text_Tn6LQz"
+      ],
+      "custom_css": [
+        ".subtitle {font-size: 3rem; font-family: var(--font-heading-family); font-style: var(--font-heading-style); font-weight: var(--font-heading-weight); letter-spacing: calc(var(--font-heading-scale) * 0.06rem); color: rgb(var(--color-foreground)); line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale))); word-break: break-word;}"
+      ],
+      "name": "Featured product (embed)",
+      "settings": {
+        "product": "nuud-drink",
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "featured_product_4PBD9z": {
+      "type": "featured-product",
+      "blocks": {
+        "text_QmNUnB": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_r6FJpe": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_inHPUa": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_jBN7Yn": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_hrCVfp": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons_6GzJVd": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_d8fqRi": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        },
+        "text_FtRHp8": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "share_QjFMAD": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_QmNUnB",
+        "title_r6FJpe",
+        "price_inHPUa",
+        "variant_picker_jBN7Yn",
+        "quantity_selector_hrCVfp",
+        "buy_buttons_6GzJVd",
+        "text_d8fqRi",
+        "text_FtRHp8",
+        "share_QjFMAD"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".share-button__button {display: none;}"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink-for-him",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "featured_product_RirYFG": {
+      "type": "featured-product",
+      "blocks": {
+        "text_jhUNxy": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_aNh3qa": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_xaHVXY": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_pghBeb": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_jDnXFp": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons_n8mVQ9": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_3Y3UrJ": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        },
+        "share_Ykz8b9": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_jhUNxy",
+        "title_aNh3qa",
+        "price_xaHVXY",
+        "variant_picker_pghBeb",
+        "quantity_selector_jDnXFp",
+        "buy_buttons_n8mVQ9",
+        "text_3Y3UrJ",
+        "share_Ykz8b9"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".share-button__button {display: none;}"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "image_banner_najYPa": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_iRWCpV": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_qcKML9": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_4EJ7FW": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iRWCpV",
+        "text_qcKML9",
+        "buttons_4EJ7FW"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/drink_bg.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_PVL4ET": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yXbtjK": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Our Customer Say",
+            "heading_size": "h0"
+          }
+        },
+        "text_yUrNNc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_kffL7C": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_yXbtjK",
+        "text_yUrNNc",
+        "button_kffL7C"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "featured_reviews_jLPKRb": {
+      "type": "featured-reviews",
+      "blocks": {
+        "image_ttEP38": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "alt": ""
+          }
+        },
+        "image_eVcMzJ": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "alt": ""
+          }
+        },
+        "image_3HmqJF": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "alt": ""
+          }
+        },
+        "review_GiJ9U9": {
+          "type": "review",
+          "settings": {
+            "title": "Insomnia",
+            "subtitle": "Relief!",
+            "text": "<p>I’ve been suffering on and off with insomnia for some time now. I was reluctant to try these but I had tried everything else and was desperate. I’m so glad I did! I slept for 10 hours! Highly recommend!</p>",
+            "author": "Lauren B.",
+            "rating": 5
+          }
+        },
+        "review_r6aTPD": {
+          "type": "review",
+          "settings": {
+            "title": "Natural Relief Is A Gummy Away",
+            "subtitle": "Relief!",
+            "text": "<p>Never in my wildest dreams would I think that this would alleviate my anxiety and do it so quickly. I prefer to do things naturally and was so glad to find these!</p>",
+            "author": "Elizabeth F.",
+            "rating": 5
+          }
+        },
+        "review_C6WwKV": {
+          "type": "review",
+          "settings": {
+            "title": "Natural Relief Is A Gummy Away",
+            "subtitle": "Relief!",
+            "text": "<p>Never in my wildest dreams would I think that this would alleviate my anxiety and do it so quickly. I prefer to do things naturally and was so glad to find these!</p>",
+            "author": "Elizabeth F.",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "image_ttEP38",
+        "image_eVcMzJ",
+        "image_3HmqJF",
+        "review_GiJ9U9",
+        "review_r6aTPD",
+        "review_C6WwKV"
+      ],
+      "disabled": true,
+      "name": "Review Carousel",
+      "settings": {
+        "heading": "What Our Customer Say",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "full_width": true,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "color_scheme": "",
+        "card_color_scheme": "",
+        "show_stars": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "view_all_label": "Read more",
+        "view_all_link": "",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_8i6kcr": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "collapsible_content_FDFb4q": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_VE78Ka": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long before intimacy should I take NUUD Drink?",
+            "icon": "none",
+            "row_content": "<p>For best results, mix one sachet of NUUD Drink with water about 60 minutes before intimacy.<br/>That allows the natural aphrodisiac ingredients to activate blood flow, sensitivity, and mood so you feel fully in the moment.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HAjRwM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I use NUUD Drink?",
+            "icon": "none",
+            "row_content": "<p>Mix one sachet with 8–10 oz of cold water, drink it entirely, and enjoy the effects within the hour.<br/>There’s no need to take it daily — use it only when you want an extra spark.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gXVbjj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can both men and women use the same NUUD Drink?",
+            "icon": "none",
+            "row_content": "<p>Yes!<br/>NUUD Drink is formulated for both men and women, with variant blends (“For Him” and “For Her”) tailored to individual performance and desire needs.<br/>Each supports optimal blood flow, stamina, and arousal naturally.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wjLG98": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is NUUD Drink safe and natural?",
+            "icon": "none",
+            "row_content": "<p>NUUD Drink uses natural, non-synthetic ingredients designed to enhance circulation, energy, and pleasure safely.<br/>It’s sugar-free, vegan, non-GMO, and made in the USA.<br/>No harsh stimulants, no side effects.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_VXB6cD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does NUUD Drink really work?",
+            "icon": "none",
+            "row_content": "<p>Yes — our formulation is based on clinically studied natural aphrodisiacs used for centuries to boost libido and vitality.<br/>Most users report noticeable results within the first use and even greater satisfaction with consistent use.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_DMAkHi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What makes NUUD Drink different from capsules or pills?",
+            "icon": "none",
+            "row_content": "<p>Unlike capsules that take longer to absorb, NUUD Drink works fast — the powder form allows quicker absorption so effects appear within an hour.<br/>Plus, it’s discreet, tasty, and easy to mix anywhere.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_VE78Ka",
+        "collapsible_row_HAjRwM",
+        "collapsible_row_gXVbjj",
+        "collapsible_row_wjLG98",
+        "collapsible_row_VXB6cD",
+        "collapsible_row_DMAkHi"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_i6p8Um": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_p6tnWH": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Our Customer Say",
+            "heading_size": "h1"
+          }
+        },
+        "text_zLWxba": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_MTaG6K": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_p6tnWH",
+        "text_zLWxba",
+        "button_MTaG6K"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "spacer_wave_JPqwGn": {
+      "type": "spacer-wave",
+      "disabled": true,
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": false,
+        "show_bottom_wave": true,
+        "wave_color": "#ffd8d8",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 0,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    },
+    "collapsible_content_xbxzwW": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_XQ9fai": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why NUUD Drink?",
+            "icon": "none",
+            "row_content": "<ul><li>Natural, non-synthetic ingredients</li><li>Works fast — just 60 minutes before intimacy</li><li>Supports blood flow & sensitivity</li><li>Enhances confidence and shared pleasure</li><li>Discreet, travel-friendly powder sachets</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qHPxxR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How to Use",
+            "icon": "none",
+            "row_content": "<ol><li>Mix one sachet with 8–10 oz of water.</li><li>Drink 60 minutes before intimacy.</li><li>Feel the difference — naturally.</li></ol>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6jGLt6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Safety & Quality",
+            "icon": "none",
+            "row_content": "<p>Formulated in the USA with natural ingredients.<br/>Vegan | Non-GMO | Sugar-Free | No Artificial Stimulants</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_XQ9fai",
+        "collapsible_row_qHPxxR",
+        "collapsible_row_6jGLt6"
+      ],
+      "disabled": true,
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-4",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_htHJDp": {
+      "type": "featured-product",
+      "blocks": {
+        "text_bwyyrT": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_waWgwR": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_FYF7KY": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_rJWCNT": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_d8UCeP": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons_8fniR6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_JiNyQz": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        },
+        "share_wNDBbN": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_bwyyrT",
+        "title_waWgwR",
+        "price_FYF7KY",
+        "variant_picker_rJWCNT",
+        "quantity_selector_d8UCeP",
+        "buy_buttons_8fniR6",
+        "text_JiNyQz",
+        "share_wNDBbN"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".share-button__button {display: none;}"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink-for-him",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "featured_product_embed_UYDP9j": {
+      "type": "featured-product-embed",
+      "blocks": {
+        "title_agebNK": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_tmezhN": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "text_4WUktm": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.title }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_7hFycR": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_ebUJMx": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_ffrCYW": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_fdhp4V": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "title_agebNK",
+        "text_tmezhN",
+        "text_4WUktm",
+        "price_7hFycR",
+        "variant_picker_ebUJMx",
+        "buy_buttons_ffrCYW",
+        "text_fdhp4V"
+      ],
+      "custom_css": [
+        ".subtitle {font-size: 3rem; font-family: var(--font-heading-family); font-style: var(--font-heading-style); font-weight: var(--font-heading-weight); letter-spacing: calc(var(--font-heading-scale) * 0.06rem); color: rgb(var(--color-foreground)); line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale))); word-break: break-word;}"
+      ],
+      "name": "Featured product (embed)",
+      "settings": {
+        "product": "nuud-drink-for-him",
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "featured_product_embed_ijTHRB": {
+      "type": "featured-product-embed",
+      "blocks": {
+        "title_fQLcgp": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_jqdXHU": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "text_cRCyFz": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.title }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_tCVVqQ": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_HLwpQx": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_HneUCp": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_AQyF8r": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "title_fQLcgp",
+        "text_jqdXHU",
+        "text_cRCyFz",
+        "price_tCVVqQ",
+        "variant_picker_HLwpQx",
+        "buy_buttons_HneUCp",
+        "text_AQyF8r"
+      ],
+      "custom_css": [
+        ".subtitle {font-size: 3rem; font-family: var(--font-heading-family); font-style: var(--font-heading-style); font-weight: var(--font-heading-weight); letter-spacing: calc(var(--font-heading-scale) * 0.06rem); color: rgb(var(--color-foreground)); line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale))); word-break: break-word;}"
+      ],
+      "name": "Featured product (embed)",
+      "settings": {
+        "product": "nuud-drink",
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "featured_product_DUFwyz": {
+      "type": "featured-product",
+      "blocks": {
+        "text_mfemKP": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_94V7He": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_CQVfhr": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_4dmzm7": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_JRMbWE": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons_DciCMj": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_TF7GgP": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.custom.is_this_for_you.value }}",
+            "text_style": "body"
+          }
+        },
+        "share_rkH49C": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_mfemKP",
+        "title_94V7He",
+        "price_CQVfhr",
+        "variant_picker_4dmzm7",
+        "quantity_selector_JRMbWE",
+        "buy_buttons_DciCMj",
+        "text_TF7GgP",
+        "share_rkH49C"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".share-button__button {display: none;}"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "spacer_wave_MF9MJm": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#881d3e",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_split_7dBXWr",
+    "spacer_wave_LgE9W6",
+    "multicolumn_pzEVmi",
+    "spacer_wave_8RfNTh",
+    "multicolumn_ymNfGG",
+    "featured_product_embed_6U47gk",
+    "featured_product_embed_P9fGQ8",
+    "featured_product_4PBD9z",
+    "featured_product_RirYFG",
+    "image_banner_najYPa",
+    "rich_text_PVL4ET",
+    "featured_reviews_jLPKRb",
+    "spacer_wave_8i6kcr",
+    "collapsible_content_FDFb4q",
+    "rich_text_i6p8Um",
+    "spacer_wave_JPqwGn",
+    "collapsible_content_xbxzwW",
+    "featured_product_htHJDp",
+    "featured_product_embed_UYDP9j",
+    "featured_product_embed_ijTHRB",
+    "featured_product_DUFwyz",
+    "spacer_wave_MF9MJm"
+  ]
+}

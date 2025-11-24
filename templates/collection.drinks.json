@@ -1,0 +1,342 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_6bVE8w": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zwT4Kk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Drinks",
+            "heading_size": "h1"
+          }
+        },
+        "text_pWxnXx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ collection.metafields.custom.meta_description.value }}</p>"
+          }
+        },
+        "caption_fTUVCH": {
+          "type": "caption",
+          "settings": {
+            "caption": "{{ collection.metafields.custom.meta_cta.value }}",
+            "text_style": "subtitle",
+            "text_size": "large"
+          }
+        },
+        "button_g93Qit": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zwT4Kk",
+        "text_pWxnXx",
+        "caption_fTUVCH",
+        "button_g93Qit"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "custom_css": [
+        ".price-item {display: none;}"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": false,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "featured_product_CTW3xQ": {
+      "type": "featured-product",
+      "blocks": {
+        "text_yndAQj": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_iXC7Fc": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_HUrHfk": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_Dx9Px8": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_WhXPVX": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_pPTHc9": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_CeirCY": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_yndAQj",
+        "title_iXC7Fc",
+        "price_HUrHfk",
+        "variant_picker_Dx9Px8",
+        "quantity_selector_WhXPVX",
+        "buy_buttons_pPTHc9",
+        "share_CeirCY"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_Uhxrmj": {
+      "type": "featured-product",
+      "blocks": {
+        "text_y8UyEx": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_ytz4Rw": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_Q3qBXW": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_DMDEnH": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_WfPk9w": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_jJP6jh": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_piXQ9h": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_y8UyEx",
+        "title_ytz4Rw",
+        "price_Q3qBXW",
+        "variant_picker_DMDEnH",
+        "quantity_selector_WfPk9w",
+        "buy_buttons_jJP6jh",
+        "share_piXQ9h"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink-for-him",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_LAGxK8": {
+      "type": "featured-product",
+      "blocks": {
+        "text_T6MCp7": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_U3rGaF": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_fpRgCD": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_nFkpXq": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_makjiW": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_jc6ayE": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_H3ByAg": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_T6MCp7",
+        "title_U3rGaF",
+        "price_fpRgCD",
+        "variant_picker_nFkpXq",
+        "quantity_selector_makjiW",
+        "buy_buttons_jc6ayE",
+        "share_H3ByAg"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "nuud-drink-water-bundle",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_wave_J44PrT": {
+      "type": "spacer-wave",
+      "name": "Wave Spacer (Animated)",
+      "settings": {
+        "use_gradient": false,
+        "background_color": "rgba(0,0,0,0)",
+        "background_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 100%)",
+        "spacer_padding_top": 0,
+        "spacer_padding_bottom": 0,
+        "show_top_wave": true,
+        "show_bottom_wave": false,
+        "wave_color": "#881d3e",
+        "wave_overlap_top": 100,
+        "wave_overlap_bottom": 100,
+        "wave_shape": "medium",
+        "wave_frequency": 2,
+        "wave_amplitude": 25,
+        "animate_waves": true,
+        "wave_speed": 12,
+        "wave_bob": 8,
+        "extra_space": false,
+        "extra_space_height": 40,
+        "z_index": 1
+      }
+    }
+  },
+  "order": [
+    "rich_text_6bVE8w",
+    "banner",
+    "product-grid",
+    "featured_product_CTW3xQ",
+    "featured_product_Uhxrmj",
+    "featured_product_LAGxK8",
+    "spacer_wave_J44PrT"
+  ]
+}
